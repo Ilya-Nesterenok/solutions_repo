@@ -138,4 +138,3 @@ This model, while simple, captures the essence of projectile motion and serves a
 
 ---
 
-This delivers a comprehensive analysis with theory, simulation, and practical insights. Let me know if you’d like to tweak parameters or extend the model further!
