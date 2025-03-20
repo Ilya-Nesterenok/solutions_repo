@@ -50,6 +50,34 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#governing-differential-equation">Governing Differential Equation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#small-angle-approximation">Small-Angle Approximation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#resonance">Resonance</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-analysis-of-dynamics">2. Analysis of Dynamics</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-effects">Parameter Effects</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#nonlinearity-and-chaos">Nonlinearity and Chaos</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-practical-applications">3. Practical Applications</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-numerical-simulation">4. Numerical Simulation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#results">Results</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#discussion">Discussion</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -119,8 +147,210 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
-<p>test</p>
+<p>Below is a detailed exploration of the forced damped pendulum, with all mathematical formulas formatted using double dollar signs (<code>$$</code>) for display-style LaTeX rendering, as requested. This ensures clarity in Markdown environments supporting LaTeX, such as GitHub. The content is organized into sections covering theory, analysis, applications, and numerical simulation, providing a comprehensive answer to your query.</p>
+<hr/>
+<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
+<p>The forced damped pendulum is a rich system where a pendulum’s motion is shaped by damping (friction-like resistance) and an external periodic force. This combination leads to behaviors ranging from simple oscillations to resonance and chaos. Let’s explore its governing equations, analyze its dynamics, and simulate its behavior.</p>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<h3 id="governing-differential-equation">Governing Differential Equation</h3>
+<p>The motion is described by a nonlinear second-order differential equation, derived from Newton’s second law for rotational motion:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + \frac{b}{m} \frac{d\theta}{dt} + \frac{g}{l} \sin\theta = \frac{F_0}{m l} \cos(\omega_d t)
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\theta\)</span>: Angular displacement from vertical (radians)
+- <span class="arithmatex">\(b\)</span>: Damping coefficient (kg/s)
+- <span class="arithmatex">\(m\)</span>: Mass of the pendulum bob (kg)
+- <span class="arithmatex">\(l\)</span>: Length of the pendulum (m)
+- <span class="arithmatex">\(g\)</span>: Gravitational acceleration (9.8 m/s²)
+- <span class="arithmatex">\(F_0\)</span>: Amplitude of the external force (N)
+- <span class="arithmatex">\(\omega_d\)</span>: Driving frequency (rad/s)
+- <span class="arithmatex">\(t\)</span>: Time (s)</p>
+<p>The terms are:
+- <span class="arithmatex">\(\frac{d^2\theta}{dt^2}\)</span>: Angular acceleration
+- <span class="arithmatex">\(\frac{b}{m} \frac{d\theta}{dt}\)</span>: Damping force per unit mass
+- <span class="arithmatex">\(\frac{g}{l} \sin\theta\)</span>: Gravitational restoring force
+- <span class="arithmatex">\(\frac{F_0}{m l} \cos(\omega_d t)\)</span>: External driving force</p>
+<h3 id="small-angle-approximation">Small-Angle Approximation</h3>
+<p>For small angles (<span class="arithmatex">\(\theta \ll 1\)</span>), <span class="arithmatex">\(\sin\theta \approx \theta\)</span>, linearizing the equation:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + 2\zeta\omega_0 \frac{d\theta}{dt} + \omega_0^2 \theta = \frac{F_0}{m l} \cos(\omega_d t)
+\]</div>
+<p>Where:
+- $$\omega_0 = \sqrt{\frac{g}{l}} : Natural frequency
+$$
+- $$\zeta = \frac{b}{2m\omega_0} : Damping ratio
+$$</p>
+<h4 id="homogeneous-solution-unforced-case">Homogeneous Solution (Unforced Case)</h4>
+<p>Set <span class="arithmatex">\(F_0 = 0\)</span>:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + 2\zeta\omega_0 \frac{d\theta}{dt} + \omega_0^2 \theta = 0
+\]</div>
+<p>Characteristic equation:</p>
+<div class="arithmatex">\[
+r^2 + 2\zeta\omega_0 r + \omega_0^2 = 0
+\]</div>
+<p>Discriminant:</p>
+<div class="arithmatex">\[
+\Delta = 4\omega_0^2 (\zeta^2 - 1)
+\]</div>
+<p>For underdamping: <span class="arithmatex">\(<span class="arithmatex">\((\zeta &lt; 1)\)</span>\)</span></p>
+<div class="arithmatex">\[
+r = -\zeta\omega_0 \pm i \omega_0 \sqrt{1 - \zeta^2}
+\]</div>
+<p>Solution:</p>
+<div class="arithmatex">\[
+\theta_h(t) = e^{-\zeta\omega_0 t} \left( C_1 \cos(\omega t) + C_2 \sin(\omega t) \right), \quad \omega = \omega_0 \sqrt{1 - \zeta^2}
+\]</div>
+<p>This shows decaying oscillations at the damped frequency <span class="arithmatex">\(\omega\)</span>.</p>
+<h4 id="particular-solution-forced-case">Particular Solution (Forced Case)</h4>
+<p>For the driving term, assume:</p>
+<div class="arithmatex">\[
+\theta_p(t) = A \cos(\omega_d t) + B \sin(\omega_d t)
+\]</div>
+<p>Substitute and solve:</p>
+<div class="arithmatex">\[
+A = \frac{F_0}{m l} \cdot \frac{\omega_0^2 - \omega_d^2}{(\omega_0^2 - \omega_d^2)^2 + (2\zeta\omega_0 \omega_d)^2}
+\]</div>
+<div class="arithmatex">\[
+B = \frac{F_0}{m l} \cdot \frac{2\zeta\omega_0 \omega_d}{(\omega_0^2 - \omega_d^2)^2 + (2\zeta\omega_0 \omega_d)^2}
+\]</div>
+<p>Amplitude:</p>
+<div class="arithmatex">\[
+D = \sqrt{A^2 + B^2} = \frac{F_0 / (m l)}{\sqrt{(\omega_0^2 - \omega_d^2)^2 + (2\zeta\omega_0 \omega_d)^2}}
+\]</div>
+<p>Phase:</p>
+<div class="arithmatex">\[
+\phi = \tan^{-1}\left( \frac{2\zeta\omega_0 \omega_d}{\omega_0^2 - \omega_d^2} \right)
+\]</div>
+<p>Thus:</p>
+<div class="arithmatex">\[
+\theta_p(t) = D \cos(\omega_d t - \phi)
+\]</div>
+<p>General solution:</p>
+<div class="arithmatex">\[
+\theta(t) = e^{-\zeta\omega_0 t} \left( C_1 \cos(\omega t) + C_2 \sin(\omega t) \right) + D \cos(\omega_d t - \phi)
+\]</div>
+<h3 id="resonance">Resonance</h3>
+<p>Amplitude <span class="arithmatex">\(D\)</span> maximizes near <span class="arithmatex">\(\omega_d = \omega_0\)</span>. At resonance:</p>
+<div class="arithmatex">\[
+D = \frac{F_0 / (m l)}{2\zeta\omega_0^2}
+\]</div>
+<p>Low <span class="arithmatex">\(\zeta\)</span> amplifies oscillations significantly.</p>
+<h2 id="2-analysis-of-dynamics">2. Analysis of Dynamics</h2>
+<h3 id="parameter-effects">Parameter Effects</h3>
+<ul>
+<li><strong>Damping (<span class="arithmatex">\(b\)</span>)</strong>: Higher <span class="arithmatex">\(b\)</span> increases <span class="arithmatex">\(\zeta\)</span>, reducing amplitude and transient duration.</li>
+<li><strong>Driving Amplitude (<span class="arithmatex">\(F_0\)</span>)</strong>: Small <span class="arithmatex">\(F_0\)</span> yields periodic motion; large <span class="arithmatex">\(F_0\)</span> can induce chaos.</li>
+<li><strong>Driving Frequency (<span class="arithmatex">\(\omega_d\)</span>)</strong>: Near <span class="arithmatex">\(\omega_0\)</span>, resonance occurs; otherwise, complex motion emerges.</li>
+</ul>
+<h3 id="nonlinearity-and-chaos">Nonlinearity and Chaos</h3>
+<p>The <span class="arithmatex">\(\sin\theta\)</span> term makes the system nonlinear. Small <span class="arithmatex">\(F_0\)</span> produces harmonic motion, but larger <span class="arithmatex">\(F_0\)</span> leads to <strong>period doubling</strong> (oscillations repeating over multiple cycles) and eventually <strong>chaos</strong>—aperiodic, sensitive motion.</p>
+<h2 id="3-practical-applications">3. Practical Applications</h2>
+<ul>
+<li><strong>Energy Harvesting</strong>: Oscillatory systems near resonance convert motion to electricity.</li>
+<li><strong>Engineering</strong>: Damping mitigates resonance in structures under periodic forces.</li>
+<li><strong>Science</strong>: Models phenomena like climate cycles or biological oscillators.</li>
+</ul>
+<h2 id="4-numerical-simulation">4. Numerical Simulation</h2>
+<p>Here’s a Python implementation using <code>scipy.integrate.odeint</code> to simulate the nonlinear equation and visualize its behavior:</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+# Parameters
+g = 9.8  # m/s^2
+l = 1.0  # m
+m = 1.0  # kg
+omega_0 = np.sqrt(g / l)
+zeta = 0.1
+b = 2 * m * zeta * omega_0
+omega_d = omega_0  # Resonance
+T = 2 * np.pi / omega_d
+
+# ODE system
+def pendulum_deriv(state, t, b, m, g, l, F0, omega_d):
+    theta, theta_dot = state
+    dtheta_dt = theta_dot
+    dtheta_dot_dt = -b/m * theta_dot - g/l * np.sin(theta) + F0/(m*l) * np.cos(omega_d * t)
+    return [dtheta_dt, dtheta_dot_dt]
+
+# Simulation
+def simulate(F0, t_max, points_per_period=100):
+    dt = T / points_per_period
+    t = np.arange(0, t_max * T, dt)
+    state0 = [0, 0]
+    sol = odeint(pendulum_deriv, state0, t, args=(b, m, g, l, F0, omega_d))
+    theta = sol[:, 0]
+    theta_dot = sol[:, 1]
+    theta_mod = np.mod(theta + np.pi, 2 * np.pi) - np.pi
+    return t, theta, theta_dot, theta_mod
+
+# Plotting
+def plot_results(F0, label):
+    t, theta, theta_dot, theta_mod = simulate(F0, 100)
+    plt.figure(figsize=(12, 8))
+
+    plt.subplot(2, 2, 1)
+    plt.plot(t[:1000], theta[:1000])
+    plt.title(f'Time Series (F0={F0} N)')
+    plt.xlabel('Time (s)')
+    plt.ylabel('θ (rad)')
+
+    plt.subplot(2, 2, 2)
+    plt.plot(theta_mod, theta_dot, '.', ms=1)
+    plt.title('Phase Diagram')
+    plt.xlabel('θ mod 2π (rad)')
+    plt.ylabel('dθ/dt (rad/s)')
+
+    poincare_idx = np.arange(100, len(t), 100)
+    plt.subplot(2, 2, 3)
+    plt.plot(theta_mod[poincare_idx], theta_dot[poincare_idx], '.', ms=2)
+    plt.title('Poincaré Section')
+    plt.xlabel('θ mod 2π (rad)')
+    plt.ylabel('dθ/dt (rad/s)')
+
+    plt.tight_layout()
+    plt.savefig(f'pendulum_F0_{label}.png')
+    plt.close()
+
+# Bifurcation diagram
+def bifurcation_diagram(F0_range=np.arange(0, 20.1, 0.2)):
+    theta_poincare = []
+    F0_vals = []
+    for F0 in F0_range:
+        t, _, theta_dot, theta_mod = simulate(F0, 200)
+        poincare_idx = np.arange(100 * 100, 200 * 100, 100)
+        theta_poincare.extend(theta_mod[poincare_idx])
+        F0_vals.extend([F0] * len(poincare_idx))
+    plt.figure(figsize=(10, 6))
+    plt.plot(F0_vals, theta_poincare, '.', ms=1)
+    plt.title('Bifurcation Diagram')
+    plt.xlabel('Driving Amplitude F0 (N)')
+    plt.ylabel('θ mod 2π (rad)')
+    plt.savefig('bifurcation.png')
+    plt.close()
+
+# Run
+plot_results(1, 'small')
+plot_results(15, 'chaotic')
+bifurcation_diagram()
+</code></pre>
+<h3 id="results">Results</h3>
+<ul>
+<li><strong>F0 = 1 N</strong>:</li>
+<li><strong>Time Series</strong>: Regular oscillations.</li>
+<li><strong>Phase Diagram</strong>: Closed loops (periodic).</li>
+<li><strong>Poincaré Section</strong>: Few points (periodic orbit).</li>
+<li><strong>F0 = 15 N</strong>:</li>
+<li><strong>Time Series</strong>: Irregular motion.</li>
+<li><strong>Phase Diagram</strong>: Dense trajectories.</li>
+<li><strong>Poincaré Section</strong>: Scattered points (chaos).</li>
+<li><strong>Bifurcation Diagram</strong>: Shows periodicity, period doubling, and chaos as <span class="arithmatex">\(F_0\)</span> increases.</li>
+</ul>
+<h2 id="discussion">Discussion</h2>
+<p>The forced damped pendulum transitions from predictable oscillations to chaotic behavior, reflecting the complexity of nonlinear systems. Limitations include the small-angle approximation’s failure at large <span class="arithmatex">\(\theta\)</span> and assumptions of linear damping. This analysis and simulation offer a window into dynamics with broad real-world relevance.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
