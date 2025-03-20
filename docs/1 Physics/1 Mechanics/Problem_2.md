@@ -250,6 +250,8 @@ bifurcation_diagram()
   - **Poincaré Section**: Scattered points (chaos).
 - **Bifurcation Diagram**: Shows periodicity, period doubling, and chaos as \(F_0\) increases.
 
+
+
 ## Discussion
 
 The forced damped pendulum transitions from predictable oscillations to chaotic behavior, reflecting the complexity of nonlinear systems. Limitations include the small-angle approximation’s failure at large \(\theta\) and assumptions of linear damping. This analysis and simulation offer a window into dynamics with broad real-world relevance.
