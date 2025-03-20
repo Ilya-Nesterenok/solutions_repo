@@ -249,11 +249,11 @@ bifurcation_diagram()
   - **Poincaré Section**: Scattered points (chaos).
 - **Bifurcation Diagram**: Shows periodicity, period doubling, and chaos as \(F_0\) increases.
 
-### Small Driving Force
+### Small Driving Force (1N)
 ![Pendulum Dynamics for F0=1.0](ImagesP2/pendulum_F0_small.png)
 This plot shows the time series, phase diagram, and Poincaré section for a small driving force.
 
-### Chaotic Driving Force
+### Large Driving Force (15N)
 ![Pendulum Dynamics for F0=15.0](ImagesP2/pendulum_F0_chaotic.png)
 This plot illustrates chaotic behavior under a large driving force.
 
