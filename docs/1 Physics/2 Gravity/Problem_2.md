@@ -101,13 +101,13 @@ This is the minimum velocity needed to escape a planet’s gravitational pull.
 
 ### Third Cosmic Velocity (Interstellar Escape Velocity)
 
-To escape a star system, an object must overcome the gravitational influence of the star. If $ R_s $ is the distance from the star’s center to the starting position:
+To escape a star system, an object must overcome the gravitational influence of the star. If $`R_s`$ is the distance from the star’s center to the starting position:
 
 $$
 v_3 = \sqrt{\frac{2 G M_s}{R_s}}
 $$
 
-where $ M_s $ is the mass of the star. This velocity is significantly higher than the escape velocity from a planet.
+where $` M_s `$ is the mass of the star. This velocity is significantly higher than the escape velocity from a planet.
 
 ---
 
@@ -123,9 +123,9 @@ $$
 
 | Planet | Mass (kg) | Radius (m) | Escape Velocity (km/s) |
 |--------|------------|-------------|-------------------|
-| Earth  | $ 5.97 \times 10^{24} $ | $ 6.371 \times 10^6 $ | 11.2 |
-| Mars   | $ 6.42 \times 10^{23} $ | $ 3.389 \times 10^6 $ | 5.0 |
-| Jupiter| $ 1.898 \times 10^{27} $ | $ 6.9911 \times 10^7 $ | 59.5 |
+| Earth  | $` 5.97 \times 10^{24} `$ | $` 6.371 \times 10^6 `$ | 11.2 |
+| Mars   | $` 6.42 \times 10^{23} `$ | $` 3.389 \times 10^6 `$ | 5.0 |
+| Jupiter| $` 1.898 \times 10^{27} `$ | $` 6.9911 \times 10^7 `$ | 59.5 |
 
 ---
 
