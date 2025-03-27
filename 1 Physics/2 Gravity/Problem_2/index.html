@@ -120,6 +120,152 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<h1 id="escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The concept of escape velocity is fundamental in astrophysics and space exploration, defining the minimum speed an object must reach to break free from a celestial body's gravitational influence. Extending this idea, the first, second, and third cosmic velocities describe different thresholds related to orbiting, escaping planetary gravity, and leaving a star system entirely. These principles underpin modern space travel, from satellite launches to interplanetary missions.</p>
+<p>This document will:</p>
+<ul>
+<li>Define and explain the first, second, and third cosmic velocities.</li>
+<li>Derive the mathematical formulas governing these velocities.</li>
+<li>Analyze the parameters affecting these velocities.</li>
+<li>Compute and visualize these velocities for celestial bodies like Earth, Mars, and Jupiter.</li>
+<li>Discuss their significance in space exploration, satellite launches, and interstellar travel.</li>
+</ul>
+<hr/>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#theoretical-background">Theoretical Background</a></li>
+<li><a href="#mathematical-derivations">Mathematical Derivations</a></li>
+<li><a href="#escape-velocities-for-different-planets">Escape Velocities for Different Planets</a></li>
+<li><a href="#visualization-of-velocities">Visualization of Velocities</a></li>
+<li><a href="#implications-for-space-exploration">Implications for Space Exploration</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<hr/>
+<h2 id="theoretical-background">Theoretical Background</h2>
+<h3 id="gravitational-potential-energy-and-kinetic-energy">Gravitational Potential Energy and Kinetic Energy</h3>
+<p>Escape velocity arises from the balance between gravitational potential energy and kinetic energy. When an object is launched from a celestial body, it must overcome the gravitational pull exerted by that body. The required kinetic energy is given by:</p>
+<div class="arithmatex">\[
+KE = \frac{1}{2} m v^2
+\]</div>
+<p>where:
+- $ m $ is the mass of the object,
+- $ v $ is the velocity of the object.</p>
+<p>The gravitational potential energy at a distance $ r $ from the center of a celestial body of mass $ M $ is:</p>
+<div class="arithmatex">\[
+PE = - \frac{G M m}{r}
+\]</div>
+<p>where $ G $ is the gravitational constant.</p>
+<p>To escape, the total energy (kinetic + potential) must be zero or positive:</p>
+<div class="arithmatex">\[
+KE + PE \geq 0
+\]</div>
+<p>By solving for $ v $, we obtain the expression for escape velocity.</p>
+<h3 id="the-three-cosmic-velocities">The Three Cosmic Velocities</h3>
+<ol>
+<li><strong>First Cosmic Velocity (Orbital Velocity)</strong>: The minimum speed needed to maintain a circular orbit around a celestial body.</li>
+<li><strong>Second Cosmic Velocity (Escape Velocity)</strong>: The speed required to completely escape a planet’s gravitational influence.</li>
+<li><strong>Third Cosmic Velocity (Interstellar Escape Velocity)</strong>: The speed necessary to escape the gravitational pull of a star system, such as the Solar System.</li>
+</ol>
+<hr/>
+<h2 id="mathematical-derivations">Mathematical Derivations</h2>
+<h3 id="first-cosmic-velocity-orbital-velocity">First Cosmic Velocity (Orbital Velocity)</h3>
+<p>For an object in a stable circular orbit, the gravitational force provides the necessary centripetal force:</p>
+<div class="arithmatex">\[
+\frac{G M m}{r^2} = \frac{m v^2}{r}
+\]</div>
+<p>Solving for $ v $:</p>
+<div class="arithmatex">\[
+v_1 = \sqrt{\frac{G M}{r}}
+\]</div>
+<p>This is the first cosmic velocity required for an object to remain in orbit.</p>
+<h3 id="second-cosmic-velocity-escape-velocity">Second Cosmic Velocity (Escape Velocity)</h3>
+<p>Setting total energy to zero:</p>
+<div class="arithmatex">\[
+\frac{1}{2} m v^2 = \frac{G M m}{r}
+\]</div>
+<p>Solving for $ v $:</p>
+<div class="arithmatex">\[
+v_2 = \sqrt{\frac{2 G M}{r}}
+\]</div>
+<p>This is the minimum velocity needed to escape a planet’s gravitational pull.</p>
+<h3 id="third-cosmic-velocity-interstellar-escape-velocity">Third Cosmic Velocity (Interstellar Escape Velocity)</h3>
+<p>To escape a star system, an object must overcome the gravitational influence of the star. If $ R_s $ is the distance from the star’s center to the starting position:</p>
+<div class="arithmatex">\[
+v_3 = \sqrt{\frac{2 G M_s}{R_s}}
+\]</div>
+<p>where $ M_s $ is the mass of the star. This velocity is significantly higher than the escape velocity from a planet.</p>
+<hr/>
+<h2 id="escape-velocities-for-different-planets">Escape Velocities for Different Planets</h2>
+<p>We calculate the escape velocities for Earth, Mars, and Jupiter using:</p>
+<div class="arithmatex">\[
+v_2 = \sqrt{\frac{2 G M}{r}}
+\]</div>
+<h3 id="example-calculations">Example Calculations</h3>
+<table>
+<thead>
+<tr>
+<th>Planet</th>
+<th>Mass (kg)</th>
+<th>Radius (m)</th>
+<th>Escape Velocity (km/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Earth</td>
+<td>$ 5.97 \times 10^{24} $</td>
+<td>$ 6.371 \times 10^6 $</td>
+<td>11.2</td>
+</tr>
+<tr>
+<td>Mars</td>
+<td>$ 6.42 \times 10^{23} $</td>
+<td>$ 3.389 \times 10^6 $</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Jupiter</td>
+<td>$ 1.898 \times 10^{27} $</td>
+<td>$ 6.9911 \times 10^7 $</td>
+<td>59.5</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="visualization-of-velocities">Visualization of Velocities</h2>
+<p>We generate plots comparing escape velocities for different celestial bodies using Python.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants (mass in kg, radius in meters)
+planets = {"Earth": (5.97e24, 6.371e6),
+           "Mars": (6.42e23, 3.389e6),
+           "Jupiter": (1.898e27, 6.9911e7)}
+G = 6.67430e-11  # Gravitational constant
+
+# Compute escape velocities
+velocities = {planet: np.sqrt(2 * G * mass / radius) / 1000 for planet, (mass, radius) in planets.items()}
+
+# Plot results
+plt.bar(velocities.keys(), velocities.values(), color=['blue', 'red', 'orange'])
+plt.ylabel("Escape Velocity (km/s)")
+plt.title("Escape Velocities of Planets")
+plt.show()
+</code></pre>
+<h3 id="plot-results">Plot results:</h3>
+<p><img alt="Escape Velocities" src="../Problem2GraphsAndScripts/plotEscapeVelocities.png"/></p>
+<hr/>
+<h2 id="implications-for-space-exploration">Implications for Space Exploration</h2>
+<ol>
+<li><strong>Launching Satellites</strong>: Reaching the first cosmic velocity ensures a stable orbit.</li>
+<li><strong>Interplanetary Missions</strong>: Spacecraft must reach the second cosmic velocity to leave a planet’s gravity.</li>
+<li><strong>Interstellar Travel</strong>: To leave the Solar System, probes like Voyager must exceed the third cosmic velocity.</li>
+</ol>
+<p>The ability to calculate and achieve these velocities is crucial for advancing human space exploration.</p>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>Escape velocities and cosmic velocities define the limits of orbital mechanics and interplanetary travel. Understanding these thresholds allows for the precise planning of satellite launches, deep-space missions, and future interstellar exploration. With ongoing advancements in propulsion technology, humanity moves closer to achieving these velocities, unlocking new frontiers in space exploration.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
