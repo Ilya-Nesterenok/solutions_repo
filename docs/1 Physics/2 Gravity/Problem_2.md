@@ -38,16 +38,16 @@ KE = \frac{1}{2} m v^2
 $$
 
 where:
-- $ m $ is the mass of the object,
-- $ v $ is the velocity of the object.
+- $m$ is the mass of the object,
+- $v$ is the velocity of the object.
 
-The gravitational potential energy at a distance $ r $ from the center of a celestial body of mass $ M $ is:
+The gravitational potential energy at a distance $r$ from the center of a celestial body of mass $M$ is:
 
 $$
 PE = - \frac{G M m}{r}
 $$
 
-where $ G $ is the gravitational constant.
+where $G$ is the gravitational constant.
 
 To escape, the total energy (kinetic + potential) must be zero or positive:
 
@@ -55,7 +55,7 @@ $$
 KE + PE \geq 0
 $$
 
-By solving for $ v $, we obtain the expression for escape velocity.
+By solving for $v$, we obtain the expression for escape velocity.
 
 ### The Three Cosmic Velocities
 
@@ -75,7 +75,7 @@ $$
 \frac{G M m}{r^2} = \frac{m v^2}{r}
 $$
 
-Solving for $ v $:
+Solving for $v$:
 
 $$
 v_1 = \sqrt{\frac{G M}{r}}
@@ -91,7 +91,7 @@ $$
 \frac{1}{2} m v^2 = \frac{G M m}{r}
 $$
 
-Solving for $ v $:
+Solving for $v$:
 
 $$
 v_2 = \sqrt{\frac{2 G M}{r}}
@@ -101,13 +101,13 @@ This is the minimum velocity needed to escape a planet’s gravitational pull.
 
 ### Third Cosmic Velocity (Interstellar Escape Velocity)
 
-To escape a star system, an object must overcome the gravitational influence of the star. If $`R_s`$ is the distance from the star’s center to the starting position:
+To escape a star system, an object must overcome the gravitational influence of the star. If $R_s$ is the distance from the star’s center to the starting position:
 
 $$
 v_3 = \sqrt{\frac{2 G M_s}{R_s}}
 $$
 
-where $` M_s `$ is the mass of the star. This velocity is significantly higher than the escape velocity from a planet.
+where $M_s$ is the mass of the star. This velocity is significantly higher than the escape velocity from a planet.
 
 ---
 
@@ -123,9 +123,9 @@ $$
 
 | Planet | Mass (kg) | Radius (m) | Escape Velocity (km/s) |
 |--------|------------|-------------|-------------------|
-| Earth  | $` 5.97 \times 10^{24} `$ | $` 6.371 \times 10^6 `$ | 11.2 |
-| Mars   | $` 6.42 \times 10^{23} `$ | $` 3.389 \times 10^6 `$ | 5.0 |
-| Jupiter| $` 1.898 \times 10^{27} `$ | $` 6.9911 \times 10^7 `$ | 59.5 |
+| Earth  | $5.97 \times 10^{24}$ | $6.371 \times 10^6$ | 11.2 |
+| Mars   | $6.42 \times 10^{23}$ | $3.389 \times 10^6$ | 5.0 |
+| Jupiter| $1.898 \times 10^{27}$ | $6.9911 \times 10^7$ | 59.5 |
 
 ---
 

@@ -19,29 +19,29 @@ In this document, we explore the relationship between the **orbital period** and
 
 ## Derivation of the Relationship
 
-The relationship between the orbital period \( T \) (the time to complete one orbit) and the orbital radius \( r \) (the distance from the center of the central mass) for a body in a circular orbit arises from balancing gravitational and centripetal forces. Let’s derive it systematically.
+The relationship between the orbital period $T$ (the time to complete one orbit) and the orbital radius $r$ (the distance from the center of the central mass) for a body in a circular orbit arises from balancing gravitational and centripetal forces. Let’s derive it systematically.
 
 ### Step 1: Gravitational Force
 
-The gravitational force \( F_g \) between a central mass \( M \) (e.g., a star or planet) and an orbiting mass \( m \) (e.g., a planet or satellite) is given by **Newton's Law of Universal Gravitation**:
+The gravitational force $F_g$ between a central mass $M$ (e.g., a star or planet) and an orbiting mass $m$ (e.g., a planet or satellite) is given by **Newton's Law of Universal Gravitation**:
 
-\[
+$$
 F_g = \frac{G M m}{r^2}
-\]
+$$
 
-- \( G \): Gravitational constant (\( G \approx 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \))
-- \( M \): Mass of the central body
-- \( m \): Mass of the orbiting body
-- \( r \): Orbital radius (distance between the centers of mass)
+- $G$: Gravitational constant ($G \approx 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$)
+- $M$: Mass of the central body
+- $m$: Mass of the orbiting body
+- $r$: Orbital radius (distance between the centers of mass)
 
 ### Step 2: Centripetal Force
 
-For an object in uniform circular motion, the centripetal force \( F_c \) required to maintain the orbit is:
+For an object in uniform circular motion, the centripetal force $F_c$ required to maintain the orbit is:
 
 $F_c = \frac{m v^2}{r}$
 
-- $ v $: Orbital speed
-- $ r $: Radius of the circular path
+- $v$: Orbital speed
+- $r$: Radius of the circular path
 
 ### Step 3: Equating Forces
 
@@ -51,11 +51,11 @@ $\frac{G M m}{r^2} = \frac{m v^2}{r}$
 
 ### Step 4: Simplify the Equation
 
-Divide both sides by $ m $ (since $ m \neq 0 $):
+Divide both sides by $m$ (since $m \neq 0$):
 
 $$\frac{G M}{r^2} = \frac{v^2}{r}$$
 
-Multiply both sides by $ r $:
+Multiply both sides by $r$:
 
 $$
 \frac{G M}{r} = v^2
@@ -69,7 +69,7 @@ $$
 
 ### Step 5: Relate Speed to Orbital Period
 
-The orbital period $ T $ is the time to complete one full revolution. The circumference of the circular orbit is $ 2 \pi r $, so the orbital speed is:
+The orbital period $T$ is the time to complete one full revolution. The circumference of the circular orbit is $2 \pi r$, so the orbital speed is:
 
 $$
 v = \frac{\text{Circumference}}{\text{Period}} = \frac{2 \pi r}{T}
@@ -81,21 +81,21 @@ $$
 v^2 = \left( \frac{2 \pi r}{T} \right)^2 = \frac{4 \pi^2 r^2}{T^2}
 $$
 
-### Step 6: Substitute and Solve for $ T $
+### Step 6: Substitute and Solve for $T$
 
-Substitute $ v^2 = \frac{4 \pi^2 r^2}{T^2} $ into the equation from Step 4:
+Substitute $v^2 = \frac{4 \pi^2 r^2}{T^2}$ into the equation from Step 4:
 
 $$
 \frac{4 \pi^2 r^2}{T^2} = \frac{G M}{r}
 $$
 
-Multiply both sides by $ T^2 $:
+Multiply both sides by $T^2$:
 
 $$
 4 \pi^2 r^2 = \frac{G M}{r} T^2
 $$
 
-Multiply both sides by $ r $ and divide by $ G M $:
+Multiply both sides by $r$ and divide by $G M$:
 
 $$
 T^2 = \frac{4 \pi^2 r^3}{G M}
@@ -109,8 +109,8 @@ $$
 T^2 = \left( \frac{4 \pi^2}{G M} \right) r^3
 $$
 
-- $ \frac{4 \pi^2}{G M} $: A constant determined by the central mass $ M $
-- This confirms **Kepler's Third Law** for circular orbits: $ T^2 \propto r^3 $.
+- $\frac{4 \pi^2}{G M}$: A constant determined by the central mass $M$
+- This confirms **Kepler's Third Law** for circular orbits: $T^2 \propto r^3$.
 
 ---
 
@@ -123,13 +123,13 @@ This relationship is a cornerstone of celestial mechanics with wide-ranging appl
      $$
      M = \frac{4 \pi^2 r^3}{G T^2}
      $$
-   - By measuring $ T $ and $ r $ of an orbiting body (e.g., a moon or satellite), we can calculate the mass of the central body (e.g., a planet or star).
+   - By measuring $T$ and $r$ of an orbiting body (e.g., a moon or satellite), we can calculate the mass of the central body (e.g., a planet or star).
 
 2. **Planetary Orbits**:
-   - For objects orbiting the same central mass (e.g., planets around the Sun), the constant $ \frac{4 \pi^2}{G M} $ is identical, enabling comparisons across the system.
+   - For objects orbiting the same central mass (e.g., planets around the Sun), the constant $\frac{4 \pi^2}{G M}$ is identical, enabling comparisons across the system.
 
 3. **Satellite Design**:
-   - Engineers use this law to calculate the orbital radius required for a specific period (e.g., geostationary satellites with $ T = 24 \, \text{hours} $).
+   - Engineers use this law to calculate the orbital radius required for a specific period (e.g., geostationary satellites with $T = 24 \, \text{hours}$).
 
 4. **Cosmological Insights**:
    - It applies to exoplanets, binary stars, and galactic dynamics, aiding in mass estimation and system characterization.
@@ -143,18 +143,18 @@ Let’s apply the relationship to practical scenarios.
 ### Example 1: The Moon Orbiting Earth
 
 - **Given**:
-  - Orbital Period: $ T = 27.3 \, \text{days} = 27.3 \times 86,400 \, \text{s} = 2,358,720 \, \text{s} $
-  - Orbital Radius: $ r = 384,000 \, \text{km} = 3.84 \times 10^8 \, \text{m} $
-  - Gravitational Constant: $ G = 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $
+  - Orbital Period: $T = 27.3 \, \text{days} = 27.3 \times 86,400 \, \text{s} = 2,358,720 \, \text{s}$
+  - Orbital Radius: $r = 384,000 \, \text{km} = 3.84 \times 10^8 \, \text{m}$
+  - Gravitational Constant: $G = 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$
 
 - **Calculate Earth’s Mass**:
   $$
   M = \frac{4 \pi^2 r^3}{G T^2}
   $$
 
-  - $ r^3 = (3.84 \times 10^8)^3 = 5.66231 \times 10^{25} \, \text{m}^3 $
-  - $ T^2 = (2,358,720)^2 = 5.5636 \times 10^{12} \, \text{s}^2 $
-  - $ 4 \pi^2 \approx 39.4784 $
+  - $r^3 = (3.84 \times 10^8)^3 = 5.66231 \times 10^{25} \, \text{m}^3$
+  - $T^2 = (2,358,720)^2 = 5.5636 \times 10^{12} \, \text{s}^2$
+  - $4 \pi^2 \approx 39.4784$
 
   Numerator:
   $$
@@ -182,11 +182,11 @@ Using astronomical units (AU) and years for simplicity (where $ T^2/r^3 $ is con
   - $ \frac{T^2}{r^3} = \frac{1^2}{1^3} = 1 $
 
 - **Mars**:
-  - $ T = 1.88 \, \text{years} $
-  - $ r = 1.52 \, \text{AU} $
-  - $ T^2 = (1.88)^2 = 3.5344 $
-  - $ r^3 = (1.52)^3 = 3.512 $
-  - $ \frac{T^2}{r^3} = \frac{3.5344}{3.512} \approx 1.006 $
+  - $T = 1.88 \, \text{years}$
+  - $r = 1.52 \, \text{AU}$
+  - $T^2 = (1.88)^2 = 3.5344$
+  - $r^3 = (1.52)^3 = 3.512$
+  - $\frac{T^2}{r^3} = \frac{3.5344}{3.512} \approx 1.006$
 
 The near-constant ratio demonstrates Kepler’s Third Law across the Solar System.
 
@@ -194,7 +194,7 @@ The near-constant ratio demonstrates Kepler’s Third Law across the Solar Syste
 
 ## Computational Model: Simulating Circular Orbits
 
-To verify $ T^2 \propto r^3 $, we’ll simulate circular orbits using Python and plot the results.
+To verify $T^2 \propto r^3$, we’ll simulate circular orbits using Python and plot the results.
 
 ### Python Code
 
