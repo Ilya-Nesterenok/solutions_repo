@@ -170,16 +170,16 @@ Let’s apply the relationship to practical scenarios.
   M \approx \frac{2.235 \times 10^{27}}{3.714 \times 10^2} \approx 6.016 \times 10^{24} \, \text{kg}
   $$
 
-- **Comparison**: Earth’s actual mass is $ 5.972 \times 10^{24} \, \text{kg} $, a close match, validating the formula.
+- **Comparison**: Earth’s actual mass is $5.972 \times 10^{24} \, \text{kg}$, a close match, validating the formula.
 
 ### Example 2: Earth and Mars Around the Sun
 
-Using astronomical units (AU) and years for simplicity (where $ T^2/r^3 $ is constant for the Sun):
+Using astronomical units (AU) and years for simplicity (where $T^2/r^3$ is constant for the Sun):
 
 - **Earth**:
-  - $ T = 1 \, \text{year} $
-  - $ r = 1 \, \text{AU} $
-  - $ \frac{T^2}{r^3} = \frac{1^2}{1^3} = 1 $
+  - $T = 1 \, \text{year}$
+  - $r = 1 \, \text{AU}$
+  - $\frac{T^2}{r^3} = \frac{1^2}{1^3} = 1$
 
 - **Mars**:
   - $T = 1.88 \, \text{years}$
