@@ -174,12 +174,14 @@
 <p>where <span class="arithmatex">\(N\)</span> is the number of sources.</p>
 <hr/>
 <h2 id="simulation-plan"><strong>Simulation Plan</strong></h2>
-<p>We will:
-1. Choose a <strong>regular polygon</strong> (triangle, square, or pentagon).
-2. Place <strong>wave sources</strong> at its vertices.
-3. Compute <strong>wave displacements</strong> from each source.
-4. Sum them using <strong>superposition</strong>.
-5. <strong>Visualize</strong> the resulting interference patterns.</p>
+<p>We will:</p>
+<ol>
+<li>Choose a <strong>regular polygon</strong> (triangle, square, or pentagon).</li>
+<li>Place <strong>wave sources</strong> at its vertices.</li>
+<li>Compute <strong>wave displacements</strong> from each source.</li>
+<li>Sum them using <strong>superposition</strong>.</li>
+<li><strong>Visualize</strong> the resulting interference patterns.</li>
+</ol>
 <hr/>
 <h2 id="python-simulation"><strong>Python Simulation</strong></h2>
 <p>Below is a Python script that simulates the interference of circular waves from sources arranged in a chosen <strong>regular polygon</strong>. It uses <strong>NumPy</strong> and <strong>Matplotlib</strong> for calculations and visualization.</p>
@@ -243,33 +245,32 @@ plt.show()
 <p><img alt="Interference pattern 4 sided" src="../plotInterference.png"/></p>
 <p><img alt="Interference pattern 4 sided" src="../plotInterference5.png"/></p>
 <p><img alt="Interference pattern 4 sided" src="../plotInterference6.png"/></p>
+<p><img alt="Interference pattern 20 sided" src="../plot20.png"/></p>
+<p><img alt="Interference pattern 50 sided" src="../plot50.png"/></p>
+<p><img alt="Interference pattern 80 sided" src="../plot80.png"/></p>
 <ol>
 <li>
 <p><strong>Wave Amplification (Constructive Interference)</strong> </p>
-</li>
-<li>
-<p>Bright (red) regions represent wave crests reinforcing each other.  </p>
-</li>
-<li>
-<p>These occur where the path difference between sources is an integer multiple of the wavelength.  </p>
+<ul>
+<li>Bright (red) regions represent wave crests reinforcing each other.  </li>
+<li>These occur where the path difference between sources is an integer multiple of the wavelength.  </li>
+</ul>
 </li>
 <li>
 <p><strong>Wave Cancellation (Destructive Interference)</strong></p>
-</li>
-<li>
-<p>Dark (blue) regions indicate troughs canceling out.  </p>
-</li>
-<li>
-<p>These form where the waves from different sources meet out of phase.  </p>
+<ul>
+<li>Dark (blue) regions indicate troughs canceling out.  </li>
+<li>These form where the waves from different sources meet out of phase.  </li>
+</ul>
 </li>
 <li>
 <p><strong>Pattern Characteristics</strong> </p>
-</li>
-<li>
-<p>The <strong>number of sources (N)</strong> affects symmetry.  </p>
-</li>
+<ul>
+<li>The <strong>number of sources (N)</strong> affects symmetry.  </li>
 <li>Increasing <span class="arithmatex">\(N\)</span> creates more complex patterns with distinct nodal lines (regions of zero displacement).  </li>
 <li>The <strong>wavelength (<span class="arithmatex">\(\lambda\)</span>)</strong> controls the spacing of the interference bands.</li>
+</ul>
+</li>
 </ol>
 <hr/>
 <h2 id="conclusion"><strong>Conclusion</strong></h2>
