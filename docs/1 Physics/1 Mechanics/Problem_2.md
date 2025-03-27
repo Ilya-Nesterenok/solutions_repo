@@ -17,20 +17,20 @@ $$
 
 Where:
 
-- \(\theta\): Angular displacement from vertical (radians)
-- \(b\): Damping coefficient (kg/s)
-- \(m\): Mass of the pendulum bob (kg)
-- \(l\): Length of the pendulum (m)
-- \(g\): Gravitational acceleration (9.8 m/s²)
-- \(F_0\): Amplitude of the external force (N)
-- \(\omega_d\): Driving frequency (rad/s)
-- \(t\): Time (s)
+- $\theta$: Angular displacement from vertical (radians)
+- $b$: Damping coefficient (kg/s)
+- $m$: Mass of the pendulum bob (kg)
+- $l$: Length of the pendulum (m)
+- $g$: Gravitational acceleration (9.8 m/s²)
+- $F_0$: Amplitude of the external force (N)
+- $\omega_d$: Driving frequency (rad/s)
+- $t$: Time (s)
 
 The terms are:
-- \(\frac{d^2\theta}{dt^2}\): Angular acceleration
-- \(\frac{b}{m} \frac{d\theta}{dt}\): Damping force per unit mass
-- \(\frac{g}{l} \sin\theta\): Gravitational restoring force
-- \(\frac{F_0}{m l} \cos(\omega_d t)\): External driving force
+- $\frac{d^2\theta}{dt^2}$: Angular acceleration
+- $\frac{b}{m} \frac{d\theta}{dt}$: Damping force per unit mass
+- $\frac{g}{l} \sin\theta$: Gravitational restoring force
+- $\frac{F_0}{m l} \cos(\omega_d t)$: External driving force
 
 ### Small-Angle Approximation
 
@@ -41,14 +41,12 @@ $$
 $$
 
 Where:
-- $$\omega_0 = \sqrt{\frac{g}{l}} : Natural frequency
-$$
-- $$\zeta = \frac{b}{2m\omega_0} : Damping ratio
-$$
+- $\omega_0 = \sqrt{\frac{g}{l}}$ : Natural frequency
+- $\zeta = \frac{b}{2m\omega_0}$ : Damping ratio
 
 #### Homogeneous Solution (Unforced Case)
 
-Set \(F_0 = 0\):
+Set $F_0 = 0$:
 
 $$
 \frac{d^2\theta}{dt^2} + 2\zeta\omega_0 \frac{d\theta}{dt} + \omega_0^2 \theta = 0
@@ -62,11 +60,9 @@ $$
 
 Discriminant:
 
-$$
-\Delta = 4\omega_0^2 (\zeta^2 - 1)
-$$
+$\Delta = 4\omega_0^2 (\zeta^2 - 1)$
 
-For underdamping: $$(\zeta < 1)$$
+For underdamping: $(\zeta < 1)$
 
 $$
 r = -\zeta\omega_0 \pm i \omega_0 \sqrt{1 - \zeta^2}
@@ -124,7 +120,7 @@ $$
 
 ### Resonance
 
-Amplitude \(D\) maximizes near \(\omega_d = \omega_0\). At resonance:
+Amplitude \(D\) maximizes near $\omega_d = \omega_0$. At resonance:
 
 $$
 D = \frac{F_0 / (m l)}{2\zeta\omega_0^2}
