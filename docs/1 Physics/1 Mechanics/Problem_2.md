@@ -16,6 +16,7 @@ $$
 $$
 
 Where:
+
 - \(\theta\): Angular displacement from vertical (radians)
 - \(b\): Damping coefficient (kg/s)
 - \(m\): Mass of the pendulum bob (kg)
