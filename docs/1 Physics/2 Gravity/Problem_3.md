@@ -41,9 +41,9 @@ $$\frac{d^2 x}{dt^2} = -\frac{G M}{r^3} x $$
 $$ \frac{d^2 y}{dt^2} = -\frac{G M}{r^3} y $$
 
 where:
-- $ G $ is the gravitational constant $ 6.67430 \times 10^{-11} $ $ m^3 kg^{-1} s^{-2} $
-- $ M $ is Earth’s mass ($ 5.972 \times 10^{24} $ kg)
-- $ r $ is the radial distance from Earth's center
+- $G$ is the gravitational constant $6.67430 \times 10^{-11}$ $m^3 kg^{-1} s^{-2}$
+- $M$ is Earth’s mass ($5.972 \times 10^{24}$ kg)
+- $r$ is the radial distance from Earth's center
 
 These differential equations describe the motion and will be solved numerically.
 
