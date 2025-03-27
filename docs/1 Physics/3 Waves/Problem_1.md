@@ -126,16 +126,19 @@ plt.show()
 
 1. **Wave Amplification (Constructive Interference)**  
 
+
    - Bright (red) regions represent wave crests reinforcing each other.  
    - These occur where the path difference between sources is an integer multiple of the wavelength.  
 
 2. **Wave Cancellation (Destructive Interference)**
 
+
    - Dark (blue) regions indicate troughs canceling out.  
    - These form where the waves from different sources meet out of phase.  
 
 3. **Pattern Characteristics** 
- 
+
+
    - The **number of sources (N)** affects symmetry.  
    - Increasing $N$ creates more complex patterns with distinct nodal lines (regions of zero displacement).  
    - The **wavelength ($\lambda$)** controls the spacing of the interference bands.
