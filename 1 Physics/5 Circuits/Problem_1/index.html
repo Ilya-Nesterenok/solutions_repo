@@ -367,18 +367,41 @@ G_nested.add_edge('A', 'C', weight=4)
 </code></pre>
 <h4 id="reduction-steps_3">Reduction Steps</h4>
 <ol>
-<li><strong>Initial Graph</strong>: Nodes = {A, B, C}, Edges = {A-B (2Ω), B-C (3Ω), A-C (4Ω)}</li>
+<li>
+<p><strong>Initial Graph</strong>: </p>
+<ul>
+<li>Nodes = {A, B, C}, Edges = {A-B (2Ω), B-C (3Ω), A-C (4Ω)}</li>
 <li>B has degree 2, neighbors = {A, C}, one edge each.</li>
-<li><strong>Series Reduction</strong>:</li>
-<li>Remove B.</li>
+<li>
+<p><strong>Series Reduction</strong>:</p>
+</li>
+<li>
+<p>Remove B.</p>
+</li>
 <li>Add edge A-C with weight = 2 + 3 = 5Ω.</li>
-<li><strong>Intermediate Graph</strong>: Nodes = {A, C}, Edges = {A-C (4Ω), A-C (5Ω)}</li>
+<li>
+<p><strong>Intermediate Graph</strong>: </p>
+</li>
+<li>
+<p>Nodes = {A, C}, Edges = {A-C (4Ω), A-C (5Ω)}</p>
+</li>
 <li>Multiple edges between A and C.</li>
-<li><strong>Parallel Reduction</strong>:</li>
-<li>Resistances = [4, 5].</li>
+<li>
+<p><strong>Parallel Reduction</strong>:</p>
+</li>
+<li>
+<p>Resistances = [4, 5].</p>
+</li>
 <li><span class="arithmatex">\(R_{\text{eq}} = \frac{4 \cdot 5}{4 + 5} = \frac{20}{9} \approx 2.222Ω\)</span>.</li>
 <li>Remove both edges, add A-C (20/9 Ω).</li>
-<li><strong>Final Graph</strong>: Nodes = {A, C}, Edges = {A-C (20/9 Ω)}</li>
+<li>
+<p><strong>Final Graph</strong>: </p>
+</li>
+<li>
+<p>Nodes = {A, C}, Edges = {A-C (20/9 Ω)}</p>
+</li>
+</ul>
+</li>
 </ol>
 <h4 id="result_2">Result</h4>
 <pre><code class="language-python">eq_nested = equivalent_resistance(G_nested, 'A', 'C')
@@ -398,22 +421,49 @@ G_ladder.add_edge('B', 'C', weight=2)
 </code></pre>
 <h4 id="reduction-steps_4">Reduction Steps</h4>
 <ol>
-<li><strong>Initial Graph</strong>: Nodes = {A, B, C}, Edges = {A-B (1Ω), B-C (1Ω), A-C (2Ω), B-C (2Ω)}</li>
+<li>
+<p><strong>Initial Graph</strong>: </p>
+<ul>
+<li>Nodes = {A, B, C}, Edges = {A-B (1Ω), B-C     (1Ω), A-C (2Ω), B-C (2Ω)}</li>
 <li>B-C has multiple edges: [1Ω, 2Ω].</li>
-<li><strong>Parallel Reduction (B-C)</strong>:</li>
-<li><span class="arithmatex">\(R_{\text{eq}} = \frac{1 \cdot 2}{1 + 2} = \frac{2}{3} \approx 0.6667Ω\)</span>.</li>
+<li>
+<p><strong>Parallel Reduction (B-C)</strong>:</p>
+</li>
+<li>
+<p><span class="arithmatex">\(R_{\text{eq}} = \frac{1 \cdot 2}{1 + 2} = \frac{2}{3} \approx 0.6667Ω\)</span>.</p>
+</li>
 <li>Replace B-C edges with B-C (2/3 Ω).</li>
-<li><strong>Intermediate Graph</strong>: Nodes = {A, B, C}, Edges = {A-B (1Ω), B-C (2/3 Ω), A-C (2Ω)}</li>
+<li>
+<p><strong>Intermediate Graph</strong>: </p>
+</li>
+<li>
+<p>Nodes = {A, B, C}, Edges = {A-B (1Ω), B-C (2/3 Ω), A-C (2Ω)}</p>
+</li>
 <li>B has degree 2, neighbors = {A, C}, one edge each.</li>
-<li><strong>Series Reduction</strong>:</li>
-<li>Remove B.</li>
+<li>
+<p><strong>Series Reduction</strong>:</p>
+</li>
+<li>
+<p>Remove B.</p>
+</li>
 <li>Add edge A-C with weight = 1 + 2/3 = 3/3 + 2/3 = 5/3 Ω.</li>
-<li><strong>Intermediate Graph</strong>: Nodes = {A, C}, Edges = {A-C (2Ω), A-C (5/3 Ω)}</li>
+<li>
+<p><strong>Intermediate Graph</strong>: </p>
+</li>
+<li>
+<p>Nodes = {A, C}, Edges = {A-C (2Ω), A-C (5/3 Ω)}</p>
+</li>
 <li>Multiple edges between A and C.</li>
-<li><strong>Parallel Reduction (A-C)</strong>:</li>
-<li>Resistances = [2, 5/3].</li>
+<li>
+<p><strong>Parallel Reduction (A-C)</strong>:</p>
+</li>
+<li>
+<p>Resistances = [2, 5/3].</p>
+</li>
 <li><span class="arithmatex">\(\frac{1}{R_{\text{eq}}} = \frac{1}{2} + \frac{3}{5} = \frac{5}{10} + \frac{6}{10} = \frac{11}{10}\)</span>.</li>
 <li><span class="arithmatex">\(R_{\text{eq}} = \frac{10}{11} \approx 0.9091Ω\)</span>.</li>
+</ul>
+</li>
 </ol>
 <h4 id="result_3">Result</h4>
 <pre><code class="language-python">eq_ladder = equivalent_resistance(G_ladder, 'A', 'C')
