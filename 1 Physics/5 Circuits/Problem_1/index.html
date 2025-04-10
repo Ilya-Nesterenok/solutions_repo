@@ -170,31 +170,27 @@
 <ol>
 <li>
 <p><strong>Parallel Reduction</strong>:</p>
-</li>
-<li>
-<p>Identify pairs of nodes with multiple edges.</p>
-</li>
+<ul>
+<li>Identify pairs of nodes with multiple edges.</li>
 <li>Compute the equivalent resistance using the parallel formula.</li>
-<li>
-<p>Replace all edges between the pair with a single edge of the computed resistance.</p>
+<li>Replace all edges between the pair with a single edge of the computed resistance.</li>
+</ul>
 </li>
 <li>
 <p><strong>Series Reduction</strong>:</p>
-</li>
-<li>
-<p>Identify nodes (not the source or target) with exactly two distinct neighbors, each connected by a single edge.</p>
-</li>
-<li>
-<p>Remove the node and connect its neighbors with a new edge, summing the resistances of the two original edges.</p>
+<ul>
+<li>Identify nodes (not the source or target) with exactly two distinct neighbors, each connected by a single edge.</li>
+<li>Remove the node and connect its neighbors with a new edge, summing the resistances of the two original edges.</li>
+</ul>
 </li>
 <li>
 <p><strong>Iterative Process</strong>:</p>
-</li>
-<li>
-<p>Prioritize parallel reductions to simplify multiple edges.</p>
-</li>
+<ul>
+<li>Prioritize parallel reductions to simplify multiple edges.</li>
 <li>Alternate between parallel and series reductions until only the source and target nodes remain.</li>
 <li>Compute the final equivalent resistance from any edges between the source and target.</li>
+</ul>
+</li>
 </ol>
 <h3 id="stopping-conditions">Stopping Conditions</h3>
 <ul>
