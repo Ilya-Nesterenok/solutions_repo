@@ -257,18 +257,26 @@ G_nested.add_edge('A', 'C', weight=4)
 ```
 
 #### Reduction Steps
-1. **Initial Graph**: Nodes = {A, B, C}, Edges = {A-B (2Ω), B-C (3Ω), A-C (4Ω)}
-   - B has degree 2, neighbors = {A, C}, one edge each.
+1. **Initial Graph**: 
+
+    - Nodes = {A, B, C}, Edges = {A-B (2Ω), B-C (3Ω), A-C (4Ω)}
+    - B has degree 2, neighbors = {A, C}, one edge each.
 2. **Series Reduction**:
-   - Remove B.
-   - Add edge A-C with weight = 2 + 3 = 5Ω.
-3. **Intermediate Graph**: Nodes = {A, C}, Edges = {A-C (4Ω), A-C (5Ω)}
-   - Multiple edges between A and C.
+    
+    - Remove B.
+    - Add edge A-C with weight = 2 + 3 = 5Ω.
+3. **Intermediate Graph**: 
+    
+    - Nodes = {A, C}, Edges = {A-C (4Ω), A-C (5Ω)}
+    - Multiple edges between A and C.
 4. **Parallel Reduction**:
-   - Resistances = [4, 5].
-   - $R_{\text{eq}} = \frac{4 \cdot 5}{4 + 5} = \frac{20}{9} \approx 2.222Ω$.
-   - Remove both edges, add A-C (20/9 Ω).
-5. **Final Graph**: Nodes = {A, C}, Edges = {A-C (20/9 Ω)}
+    
+    - Resistances = [4, 5].
+    - $R_{\text{eq}} = \frac{4 \cdot 5}{4 + 5} = \frac{20}{9} \approx 2.222Ω$.
+    - Remove both edges, add A-C (20/9 Ω).
+5. **Final Graph**: 
+    
+    - Nodes = {A, C}, Edges = {A-C (20/9 Ω)}
 
 #### Result
 ```python
@@ -293,22 +301,31 @@ G_ladder.add_edge('B', 'C', weight=2)
 ```
 
 #### Reduction Steps
-1. **Initial Graph**: Nodes = {A, B, C}, Edges = {A-B (1Ω), B-C (1Ω), A-C (2Ω), B-C (2Ω)}
-   - B-C has multiple edges: [1Ω, 2Ω].
+1. **Initial Graph**: 
+    
+    - Nodes = {A, B, C}, Edges = {A-B (1Ω), B-C     (1Ω), A-C (2Ω), B-C (2Ω)}
+    - B-C has multiple edges: [1Ω, 2Ω].
 2. **Parallel Reduction (B-C)**:
-   - $R_{\text{eq}} = \frac{1 \cdot 2}{1 + 2} = \frac{2}{3} \approx 0.6667Ω$.
-   - Replace B-C edges with B-C (2/3 Ω).
-3. **Intermediate Graph**: Nodes = {A, B, C}, Edges = {A-B (1Ω), B-C (2/3 Ω), A-C (2Ω)}
-   - B has degree 2, neighbors = {A, C}, one edge each.
+    
+    - $R_{\text{eq}} = \frac{1 \cdot 2}{1 + 2} = \frac{2}{3} \approx 0.6667Ω$.
+    - Replace B-C edges with B-C (2/3 Ω).
+3. **Intermediate Graph**: 
+    
+    - Nodes = {A, B, C}, Edges = {A-B (1Ω), B-C (2/3 Ω), A-C (2Ω)}
+    - B has degree 2, neighbors = {A, C}, one edge each.
 4. **Series Reduction**:
-   - Remove B.
-   - Add edge A-C with weight = 1 + 2/3 = 3/3 + 2/3 = 5/3 Ω.
-5. **Intermediate Graph**: Nodes = {A, C}, Edges = {A-C (2Ω), A-C (5/3 Ω)}
-   - Multiple edges between A and C.
+   
+    - Remove B.
+    - Add edge A-C with weight = 1 + 2/3 = 3/3 + 2/3 = 5/3 Ω.
+5. **Intermediate Graph**: 
+    
+    - Nodes = {A, C}, Edges = {A-C (2Ω), A-C (5/3 Ω)}
+    - Multiple edges between A and C.
 6. **Parallel Reduction (A-C)**:
-   - Resistances = [2, 5/3].
-   - $\frac{1}{R_{\text{eq}}} = \frac{1}{2} + \frac{3}{5} = \frac{5}{10} + \frac{6}{10} = \frac{11}{10}$.
-   - $R_{\text{eq}} = \frac{10}{11} \approx 0.9091Ω$.
+   
+    - Resistances = [2, 5/3].
+    - $\frac{1}{R_{\text{eq}}} = \frac{1}{2} + \frac{3}{5} = \frac{5}{10} + \frac{6}{10} = \frac{11}{10}$.
+    - $R_{\text{eq}} = \frac{10}{11} \approx 0.9091Ω$.
 
 #### Result
 ```python
