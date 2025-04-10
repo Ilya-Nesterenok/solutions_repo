@@ -221,13 +221,19 @@ G_parallel.add_edge('A', 'B', weight=3)
 ```
 
 #### Reduction Steps
-1. **Initial Graph**: Nodes = {A, B}, Edges = {A-B (2Ω), A-B (3Ω)}
-   - A and B have multiple edges.
+
+1. **Initial Graph**: 
+
+    - Nodes = {A, B}, Edges = {A-B (2Ω), A-B (3Ω)}
+    - A and B have multiple edges.
 2. **Parallel Reduction**:
-   - Resistances = [2, 3].
-   - $R_{\text{eq}} = \frac{2 \cdot 3}{2 + 3} = \frac{6}{5} = 1.2Ω$.
-   - Remove both edges, add A-B (1.2Ω).
-3. **Reduced Graph**: Nodes = {A, B}, Edges = {A-B (1.2Ω)}
+
+    - Resistances = [2, 3].
+    - $R_{\text{eq}} = \frac{2 \cdot 3}{2 + 3} = \frac{6}{5} = 1.2Ω$.
+    - Remove both edges, add A-B (1.2Ω).
+3. **Reduced Graph**:
+
+    - Nodes = {A, B}, Edges = {A-B (1.2Ω)}
 
 #### Result
 ```python
