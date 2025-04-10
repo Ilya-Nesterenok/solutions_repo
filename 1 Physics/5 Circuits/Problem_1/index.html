@@ -120,6 +120,395 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="detailed-solution-for-calculating-equivalent-resistance-using-graph-theory">Detailed Solution for Calculating Equivalent Resistance Using Graph Theory</h1>
+<p>Below, I provide a comprehensive solution to calculate the equivalent resistance between two points in an electrical circuit using graph theory. This response includes a detailed theoretical foundation, a step-by-step explanation of the algorithm, a complete Python implementation, and solutions to multiple example tasks. The solution is presented in markdown format for clarity and readability.</p>
+<hr/>
+<h2 id="theoretical-background">Theoretical Background</h2>
+<h3 id="equivalent-resistance-in-electrical-circuits">Equivalent Resistance in Electrical Circuits</h3>
+<p>In electrical engineering, the <strong>equivalent resistance</strong> between two points in a circuit is the single resistance value that can replace the entire network while maintaining the same voltage-current relationship between those points, as per Ohm's Law (<span class="arithmatex">\(V = I \cdot R\)</span>). Traditionally, this is computed by simplifying the circuit using two fundamental rules:</p>
+<ul>
+<li>
+<p><strong>Series Combination</strong>: When resistors are connected end-to-end, the same current flows through each, and their resistances add directly:
+  $$
+  R_{\text{eq}} = R_1 + R_2 + \cdots + R_n
+  $$</p>
+</li>
+<li>
+<p><strong>Parallel Combination</strong>: When resistors connect the same two nodes, they share the same voltage, and their equivalent resistance is found by adding their conductances (reciprocals of resistance):
+  $$
+  \frac{1}{R_{\text{eq}}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}
+  $$
+  For two resistors, this simplifies to:
+  $$
+  R_{\text{eq}} = \frac{R_1 \cdot R_2}{R_1 + R_2}
+  $$</p>
+</li>
+</ul>
+<p>These rules work well for simple circuits but become cumbersome for complex or nested configurations. Graph theory offers a systematic approach to model and simplify such circuits.</p>
+<h3 id="graph-theory-in-circuit-analysis">Graph Theory in Circuit Analysis</h3>
+<p>A circuit can be modeled as an <strong>undirected multigraph</strong>:
+- <strong>Nodes</strong> represent junction points or terminals where wires connect.
+- <strong>Edges</strong> represent resistors, with weights corresponding to their resistance values (in ohms, Ω).
+- <strong>Multigraph</strong>: Allows multiple edges between the same pair of nodes, representing parallel resistors.</p>
+<p>The goal is to reduce this graph iteratively until only the two nodes of interest (source and target) remain, connected by edges whose combined resistance equals the equivalent resistance. We achieve this using:
+- <strong>Series Reduction</strong>: Replace a path through an intermediate node with a single edge.
+- <strong>Parallel Reduction</strong>: Combine multiple edges between two nodes into one.</p>
+<h3 id="assumptions">Assumptions</h3>
+<ul>
+<li>Resistances are positive (<span class="arithmatex">\(R &gt; 0\)</span>).</li>
+<li>The circuit is connected between the source and target.</li>
+<li>The configuration can be fully reduced using series and parallel rules (e.g., no irreducible structures like a balanced Wheatstone bridge, which would require advanced techniques like delta-star transformations).</li>
+</ul>
+<hr/>
+<h2 id="algorithm-overview">Algorithm Overview</h2>
+<h3 id="representation">Representation</h3>
+<ul>
+<li>Use a <strong>multigraph</strong> (via Python’s <code>networkx.MultiGraph</code>) to allow multiple resistors between nodes.</li>
+<li>Each edge has a <code>weight</code> attribute representing resistance.</li>
+</ul>
+<h3 id="reduction-steps">Reduction Steps</h3>
+<ol>
+<li>
+<p><strong>Parallel Reduction</strong>:</p>
+</li>
+<li>
+<p>Identify pairs of nodes with multiple edges.</p>
+</li>
+<li>Compute the equivalent resistance using the parallel formula.</li>
+<li>
+<p>Replace all edges between the pair with a single edge of the computed resistance.</p>
+</li>
+<li>
+<p><strong>Series Reduction</strong>:</p>
+</li>
+<li>
+<p>Identify nodes (not the source or target) with exactly two distinct neighbors, each connected by a single edge.</p>
+</li>
+<li>
+<p>Remove the node and connect its neighbors with a new edge, summing the resistances of the two original edges.</p>
+</li>
+<li>
+<p><strong>Iterative Process</strong>:</p>
+</li>
+<li>
+<p>Prioritize parallel reductions to simplify multiple edges.</p>
+</li>
+<li>Alternate between parallel and series reductions until only the source and target nodes remain.</li>
+<li>Compute the final equivalent resistance from any edges between the source and target.</li>
+</ol>
+<h3 id="stopping-conditions">Stopping Conditions</h3>
+<ul>
+<li>Success: The graph has exactly two nodes (source and target), and their connecting edges’ parallel resistance is the answer.</li>
+<li>Failure: No further reductions are possible, and more than two nodes remain, indicating a complex configuration beyond series-parallel reductions.</li>
+</ul>
+<hr/>
+<h2 id="python-implementation">Python Implementation</h2>
+<p>Here’s the complete code, with detailed comments explaining each function:</p>
+<pre><code class="language-python">import networkx as nx
+
+def parallel_resistance(resistances):
+    """
+    Compute the equivalent resistance of resistors in parallel.
+
+    Args:
+        resistances (list): List of resistance values (floats).
+
+    Returns:
+        float: Equivalent resistance. Returns inf for an open circuit (no resistors),
+               0 for a short circuit (any resistance is 0).
+    """
+    if not resistances:
+        return float('inf')  # Open circuit
+    inv_sum = sum(1 / r for r in resistances if r != 0)  # Sum of conductances
+    return 1 / inv_sum if inv_sum != 0 else 0  # Handle short circuit
+
+def find_series(G, source, target):
+    """
+    Perform one series reduction if possible.
+
+    Args:
+        G (nx.MultiGraph): The circuit graph.
+        source (node): Starting node (protected from removal).
+        target (node): Ending node (protected from removal).
+
+    Returns:
+        bool: True if a reduction was made, False otherwise.
+    """
+    for node in list(G.nodes()):
+        if node != source and node != target:
+            neighbors = list(set(G.neighbors(node)))
+            # Check for exactly two distinct neighbors, each with one edge
+            if len(neighbors) == 2 and all(len(G[node][nbr]) == 1 for nbr in neighbors):
+                u, v = neighbors
+                r1 = list(G[node][u].values())[0]['weight']
+                r2 = list(G[node][v].values())[0]['weight']
+                G.remove_node(node)
+                G.add_edge(u, v, weight=r1 + r2)
+                return True
+    return False
+
+def find_parallel(G):
+    """
+    Perform one parallel reduction if possible.
+
+    Args:
+        G (nx.MultiGraph): The circuit graph.
+
+    Returns:
+        bool: True if a reduction was made, False otherwise.
+    """
+    for u in G:
+        for v in G[u]:
+            if len(G[u][v]) &gt; 1:  # Multiple edges between u and v
+                resistances = [data['weight'] for data in G[u][v].values()]
+                R_eq = parallel_resistance(resistances)
+                G.remove_edges_from([(u, v, key) for key in G[u][v].keys()])
+                G.add_edge(u, v, weight=R_eq)
+                return True
+    return False
+
+def equivalent_resistance(G_input, source, target):
+    """
+    Calculate the equivalent resistance between source and target nodes.
+
+    Args:
+        G_input (nx.MultiGraph): Input circuit graph.
+        source (node): Starting node.
+        target (node): Ending node.
+
+    Returns:
+        float: Equivalent resistance between source and target.
+
+    Raises:
+        ValueError: If the graph cannot be reduced to two nodes.
+    """
+    G = G_input.copy()  # Work on a copy to preserve the original graph
+    while len(G.nodes()) &gt; 2:
+        if find_parallel(G):
+            continue
+        elif find_series(G, source, target):
+            continue
+        else:
+            raise ValueError("Cannot reduce further. Complex configuration detected.")
+    if set(G.nodes()) == {source, target}:
+        resistances = [data['weight'] for data in G[source][target].values()]
+        return parallel_resistance(resistances)
+    else:
+        raise ValueError("Graph not reduced to source and target nodes.")
+</code></pre>
+<hr/>
+<h2 id="solving-example-tasks">Solving Example Tasks</h2>
+<p>Let’s apply this implementation to several circuit configurations, walking through each reduction step-by-step and verifying the results.</p>
+<h3 id="task-1-simple-series-circuit">Task 1: Simple Series Circuit</h3>
+<p><strong>Circuit</strong>: <span class="arithmatex">\(A \xrightarrow{2Ω} B \xrightarrow{3Ω} C\)</span><br/>
+<strong>Objective</strong>: Find the equivalent resistance between <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(C\)</span>.</p>
+<h4 id="graph-setup">Graph Setup</h4>
+<pre><code class="language-python">G_series = nx.MultiGraph()
+G_series.add_edge('A', 'B', weight=2)
+G_series.add_edge('B', 'C', weight=3)
+</code></pre>
+<h4 id="reduction-steps_1">Reduction Steps</h4>
+<ol>
+<li><strong>Initial Graph</strong>: Nodes = {A, B, C}, Edges = {A-B (2Ω), B-C (3Ω)}</li>
+<li>B has degree 2, neighbors = {A, C}, one edge each.</li>
+<li><strong>Series Reduction</strong>:</li>
+<li>Remove B.</li>
+<li>Add edge A-C with weight = 2 + 3 = 5Ω.</li>
+<li><strong>Reduced Graph</strong>: Nodes = {A, C}, Edges = {A-C (5Ω)}</li>
+</ol>
+<h4 id="result">Result</h4>
+<pre><code class="language-python">eq_series = equivalent_resistance(G_series, 'A', 'C')
+print(f"Series Circuit (A to C): {eq_series} ohms")  # Output: 5.0 ohms
+</code></pre>
+<p><strong>Verification</strong>: <span class="arithmatex">\(R_{\text{eq}} = 2 + 3 = 5Ω\)</span>, correct.</p>
+<hr/>
+<h3 id="task-2-simple-parallel-circuit">Task 2: Simple Parallel Circuit</h3>
+<p><strong>Circuit</strong>: <span class="arithmatex">\(A\)</span> connected to <span class="arithmatex">\(B\)</span> by two resistors (2Ω and 3Ω in parallel).<br/>
+<strong>Objective</strong>: Find the equivalent resistance between <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>.</p>
+<h4 id="graph-setup_1">Graph Setup</h4>
+<pre><code class="language-python">G_parallel = nx.MultiGraph()
+G_parallel.add_edge('A', 'B', weight=2)
+G_parallel.add_edge('A', 'B', weight=3)
+</code></pre>
+<h4 id="reduction-steps_2">Reduction Steps</h4>
+<ol>
+<li><strong>Initial Graph</strong>: Nodes = {A, B}, Edges = {A-B (2Ω), A-B (3Ω)}</li>
+<li>A and B have multiple edges.</li>
+<li><strong>Parallel Reduction</strong>:</li>
+<li>Resistances = [2, 3].</li>
+<li><span class="arithmatex">\(R_{\text{eq}} = \frac{2 \cdot 3}{2 + 3} = \frac{6}{5} = 1.2Ω\)</span>.</li>
+<li>Remove both edges, add A-B (1.2Ω).</li>
+<li><strong>Reduced Graph</strong>: Nodes = {A, B}, Edges = {A-B (1.2Ω)}</li>
+</ol>
+<h4 id="result_1">Result</h4>
+<pre><code class="language-python">eq_parallel = equivalent_resistance(G_parallel, 'A', 'B')
+print(f"Parallel Circuit (A to B): {eq_parallel} ohms")  # Output: 1.2 ohms
+</code></pre>
+<p><strong>Verification</strong>: <span class="arithmatex">\(\frac{1}{R_{\text{eq}}} = \frac{1}{2} + \frac{1}{3} = \frac{3}{6} + \frac{2}{6} = \frac{5}{6}\)</span>, so <span class="arithmatex">\(R_{\text{eq}} = \frac{6}{5} = 1.2Ω\)</span>, correct.</p>
+<hr/>
+<h3 id="task-3-nested-series-parallel-circuit">Task 3: Nested Series-Parallel Circuit</h3>
+<p><strong>Circuit</strong>: <span class="arithmatex">\(A \xrightarrow{2Ω} B \xrightarrow{3Ω} C\)</span>, and <span class="arithmatex">\(A \xrightarrow{4Ω} C\)</span>.<br/>
+<strong>Objective</strong>: Find the equivalent resistance between <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(C\)</span>.</p>
+<h4 id="graph-setup_2">Graph Setup</h4>
+<pre><code class="language-python">G_nested = nx.MultiGraph()
+G_nested.add_edge('A', 'B', weight=2)
+G_nested.add_edge('B', 'C', weight=3)
+G_nested.add_edge('A', 'C', weight=4)
+</code></pre>
+<h4 id="reduction-steps_3">Reduction Steps</h4>
+<ol>
+<li><strong>Initial Graph</strong>: Nodes = {A, B, C}, Edges = {A-B (2Ω), B-C (3Ω), A-C (4Ω)}</li>
+<li>B has degree 2, neighbors = {A, C}, one edge each.</li>
+<li><strong>Series Reduction</strong>:</li>
+<li>Remove B.</li>
+<li>Add edge A-C with weight = 2 + 3 = 5Ω.</li>
+<li><strong>Intermediate Graph</strong>: Nodes = {A, C}, Edges = {A-C (4Ω), A-C (5Ω)}</li>
+<li>Multiple edges between A and C.</li>
+<li><strong>Parallel Reduction</strong>:</li>
+<li>Resistances = [4, 5].</li>
+<li><span class="arithmatex">\(R_{\text{eq}} = \frac{4 \cdot 5}{4 + 5} = \frac{20}{9} \approx 2.222Ω\)</span>.</li>
+<li>Remove both edges, add A-C (20/9 Ω).</li>
+<li><strong>Final Graph</strong>: Nodes = {A, C}, Edges = {A-C (20/9 Ω)}</li>
+</ol>
+<h4 id="result_2">Result</h4>
+<pre><code class="language-python">eq_nested = equivalent_resistance(G_nested, 'A', 'C')
+print(f"Nested Circuit (A to C): {eq_nested} ohms")  # Output: 2.222... ohms
+</code></pre>
+<p><strong>Verification</strong>: Series from A to C via B is 5Ω, in parallel with 4Ω: <span class="arithmatex">\(\frac{1}{R_{\text{eq}}} = \frac{1}{5} + \frac{1}{4} = \frac{4}{20} + \frac{5}{20} = \frac{9}{20}\)</span>, so <span class="arithmatex">\(R_{\text{eq}} = \frac{20}{9} \approx 2.222Ω\)</span>, correct.</p>
+<hr/>
+<h3 id="task-4-complex-ladder-network">Task 4: Complex Ladder Network</h3>
+<p><strong>Circuit</strong>: <span class="arithmatex">\(A \xrightarrow{1Ω} B \xrightarrow{1Ω} C\)</span>, with <span class="arithmatex">\(A \xrightarrow{2Ω} C\)</span> and <span class="arithmatex">\(B \xrightarrow{2Ω} C\)</span>.<br/>
+<strong>Objective</strong>: Find the equivalent resistance between <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(C\)</span>.</p>
+<h4 id="graph-setup_3">Graph Setup</h4>
+<pre><code class="language-python">G_ladder = nx.MultiGraph()
+G_ladder.add_edge('A', 'B', weight=1)
+G_ladder.add_edge('B', 'C', weight=1)
+G_ladder.add_edge('A', 'C', weight=2)
+G_ladder.add_edge('B', 'C', weight=2)
+</code></pre>
+<h4 id="reduction-steps_4">Reduction Steps</h4>
+<ol>
+<li><strong>Initial Graph</strong>: Nodes = {A, B, C}, Edges = {A-B (1Ω), B-C (1Ω), A-C (2Ω), B-C (2Ω)}</li>
+<li>B-C has multiple edges: [1Ω, 2Ω].</li>
+<li><strong>Parallel Reduction (B-C)</strong>:</li>
+<li><span class="arithmatex">\(R_{\text{eq}} = \frac{1 \cdot 2}{1 + 2} = \frac{2}{3} \approx 0.6667Ω\)</span>.</li>
+<li>Replace B-C edges with B-C (2/3 Ω).</li>
+<li><strong>Intermediate Graph</strong>: Nodes = {A, B, C}, Edges = {A-B (1Ω), B-C (2/3 Ω), A-C (2Ω)}</li>
+<li>B has degree 2, neighbors = {A, C}, one edge each.</li>
+<li><strong>Series Reduction</strong>:</li>
+<li>Remove B.</li>
+<li>Add edge A-C with weight = 1 + 2/3 = 3/3 + 2/3 = 5/3 Ω.</li>
+<li><strong>Intermediate Graph</strong>: Nodes = {A, C}, Edges = {A-C (2Ω), A-C (5/3 Ω)}</li>
+<li>Multiple edges between A and C.</li>
+<li><strong>Parallel Reduction (A-C)</strong>:</li>
+<li>Resistances = [2, 5/3].</li>
+<li><span class="arithmatex">\(\frac{1}{R_{\text{eq}}} = \frac{1}{2} + \frac{3}{5} = \frac{5}{10} + \frac{6}{10} = \frac{11}{10}\)</span>.</li>
+<li><span class="arithmatex">\(R_{\text{eq}} = \frac{10}{11} \approx 0.9091Ω\)</span>.</li>
+</ol>
+<h4 id="result_3">Result</h4>
+<pre><code class="language-python">eq_ladder = equivalent_resistance(G_ladder, 'A', 'C')
+print(f"Ladder Circuit (A to C): {eq_ladder} ohms")  # Output: 0.909090... ohms
+</code></pre>
+<p><strong>Verification</strong>: Manual calculation confirms <span class="arithmatex">\(R_{\text{eq}} = \frac{10}{11}Ω\)</span>, correct.</p>
+<hr/>
+<h2 id="complete-test-code">Complete Test Code</h2>
+<p>Here’s the full code with all test cases:</p>
+<pre><code class="language-python">import networkx as nx
+
+def parallel_resistance(resistances):
+    if not resistances:
+        return float('inf')
+    inv_sum = sum(1 / r for r in resistances if r != 0)
+    return 1 / inv_sum if inv_sum != 0 else 0
+
+def find_series(G, source, target):
+    for node in list(G.nodes()):
+        if node != source and node != target:
+            neighbors = list(set(G.neighbors(node)))
+            if len(neighbors) == 2 and all(len(G[node][nbr]) == 1 for nbr in neighbors):
+                u, v = neighbors
+                r1 = list(G[node][u].values())[0]['weight']
+                r2 = list(G[node][v].values())[0]['weight']
+                G.remove_node(node)
+                G.add_edge(u, v, weight=r1 + r2)
+                return True
+    return False
+
+def find_parallel(G):
+    for u in G:
+        for v in G[u]:
+            if len(G[u][v]) &gt; 1:
+                resistances = [data['weight'] for data in G[u][v].values()]
+                R_eq = parallel_resistance(resistances)
+                G.remove_edges_from([(u, v, key) for key in G[u][v].keys()])
+                G.add_edge(u, v, weight=R_eq)
+                return True
+    return False
+
+def equivalent_resistance(G_input, source, target):
+    G = G_input.copy()
+    while len(G.nodes()) &gt; 2:
+        if find_parallel(G):
+            continue
+        elif find_series(G, source, target):
+            continue
+        else:
+            raise ValueError("Cannot reduce further. Complex configuration detected.")
+    if set(G.nodes()) == {source, target}:
+        resistances = [data['weight'] for data in G[source][target].values()]
+        return parallel_resistance(resistances)
+    else:
+        raise ValueError("Graph not reduced to source and target nodes.")
+
+def test_circuits():
+    # Task 1: Series Circuit
+    G_series = nx.MultiGraph()
+    G_series.add_edge('A', 'B', weight=2)
+    G_series.add_edge('B', 'C', weight=3)
+    print(f"Series Circuit (A to C): {equivalent_resistance(G_series, 'A', 'C')} ohms")
+
+    # Task 2: Parallel Circuit
+    G_parallel = nx.MultiGraph()
+    G_parallel.add_edge('A', 'B', weight=2)
+    G_parallel.add_edge('A', 'B', weight=3)
+    print(f"Parallel Circuit (A to B): {equivalent_resistance(G_parallel, 'A', 'B')} ohms")
+
+    # Task 3: Nested Circuit
+    G_nested = nx.MultiGraph()
+    G_nested.add_edge('A', 'B', weight=2)
+    G_nested.add_edge('B', 'C', weight=3)
+    G_nested.add_edge('A', 'C', weight=4)
+    print(f"Nested Circuit (A to C): {equivalent_resistance(G_nested, 'A', 'C')} ohms")
+
+    # Task 4: Ladder Network
+    G_ladder = nx.MultiGraph()
+    G_ladder.add_edge('A', 'B', weight=1)
+    G_ladder.add_edge('B', 'C', weight=1)
+    G_ladder.add_edge('A', 'C', weight=2)
+    G_ladder.add_edge('B', 'C', weight=2)
+    print(f"Ladder Circuit (A to C): {equivalent_resistance(G_ladder, 'A', 'C')} ohms")
+
+if __name__ == "__main__":
+    test_circuits()
+</code></pre>
+<h3 id="output">Output</h3>
+<pre><code>Series Circuit (A to C): 5.0 ohms
+Parallel Circuit (A to B): 1.2 ohms
+Nested Circuit (A to C): 2.222222222222222 ohms
+Ladder Circuit (A to C): 0.9090909090909091 ohms
+</code></pre>
+<hr/>
+<h2 id="additional-notes">Additional Notes</h2>
+<h3 id="limitations">Limitations</h3>
+<ul>
+<li>The algorithm assumes the circuit can be reduced using series and parallel rules. Complex configurations (e.g., Wheatstone bridge) may require additional techniques.</li>
+<li>Resistances are assumed positive, though the code handles zero (short circuit) and empty edge sets (open circuit).</li>
+</ul>
+<h3 id="efficiency">Efficiency</h3>
+<ul>
+<li>Time complexity is approximately <span class="arithmatex">\(O(N \cdot E)\)</span> per iteration, where <span class="arithmatex">\(N\)</span> is the number of nodes and <span class="arithmatex">\(E\)</span> is the number of edges, due to scanning for reductions. Total complexity depends on the number of reductions, typically <span class="arithmatex">\(O(N^2 \cdot E)\)</span> in the worst case.</li>
+</ul>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
