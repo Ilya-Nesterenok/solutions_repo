@@ -328,13 +328,27 @@ G_parallel.add_edge('A', 'B', weight=3)
 </code></pre>
 <h4 id="reduction-steps_2">Reduction Steps</h4>
 <ol>
-<li><strong>Initial Graph</strong>: Nodes = {A, B}, Edges = {A-B (2Ω), A-B (3Ω)}</li>
+<li>
+<p><strong>Initial Graph</strong>: </p>
+<ul>
+<li>Nodes = {A, B}, Edges = {A-B (2Ω), A-B (3Ω)}</li>
 <li>A and B have multiple edges.</li>
-<li><strong>Parallel Reduction</strong>:</li>
-<li>Resistances = [2, 3].</li>
+<li>
+<p><strong>Parallel Reduction</strong>:</p>
+</li>
+<li>
+<p>Resistances = [2, 3].</p>
+</li>
 <li><span class="arithmatex">\(R_{\text{eq}} = \frac{2 \cdot 3}{2 + 3} = \frac{6}{5} = 1.2Ω\)</span>.</li>
 <li>Remove both edges, add A-B (1.2Ω).</li>
-<li><strong>Reduced Graph</strong>: Nodes = {A, B}, Edges = {A-B (1.2Ω)}</li>
+<li>
+<p><strong>Reduced Graph</strong>:</p>
+</li>
+<li>
+<p>Nodes = {A, B}, Edges = {A-B (1.2Ω)}</p>
+</li>
+</ul>
+</li>
 </ol>
 <h4 id="result_1">Result</h4>
 <pre><code class="language-python">eq_parallel = equivalent_resistance(G_parallel, 'A', 'B')
