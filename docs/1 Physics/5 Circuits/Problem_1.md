@@ -53,20 +53,23 @@ The goal is to reduce this graph iteratively until only the two nodes of interes
 ### Reduction Steps
 1. **Parallel Reduction**:
 
-   - Identify pairs of nodes with multiple edges.
-   - Compute the equivalent resistance using the parallel formula.
-   - Replace all edges between the pair with a single edge of the computed resistance.
+
+    - Identify pairs of nodes with multiple edges.
+    - Compute the equivalent resistance using the parallel formula.
+    - Replace all edges between the pair with a single edge of the computed resistance.
 
 2. **Series Reduction**:
 
-   - Identify nodes (not the source or target) with exactly two distinct neighbors, each connected by a single edge.
-   - Remove the node and connect its neighbors with a new edge, summing the resistances of the two original edges.
+
+    - Identify nodes (not the source or target) with exactly two distinct neighbors, each connected by a single edge.
+    - Remove the node and connect its neighbors with a new edge, summing the resistances of the two original edges.
 
 3. **Iterative Process**:
 
-   - Prioritize parallel reductions to simplify multiple edges.
-   - Alternate between parallel and series reductions until only the source and target nodes remain.
-   - Compute the final equivalent resistance from any edges between the source and target.
+
+    - Prioritize parallel reductions to simplify multiple edges.
+    - Alternate between parallel and series reductions until only the source and target nodes remain.
+    - Compute the final equivalent resistance from any edges between the source and target.
 
 ### Stopping Conditions
 - Success: The graph has exactly two nodes (source and target), and their connecting edges’ parallel resistance is the answer.
