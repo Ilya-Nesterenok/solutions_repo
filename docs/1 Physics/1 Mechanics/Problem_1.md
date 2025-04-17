@@ -50,15 +50,15 @@ The parameters $v_0$, $\theta$, $g$, and initial height $h$ (if $y_0 \neq 0$) de
 The range $R$ is the horizontal distance traveled when the projectile returns to $y = 0$ (assuming launch and landing at the same height).
 
 - Set $y(t) = 0$:  
-  $0 = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2$  
-  Factorize: $t (v_0 \sin\theta - \frac{1}{2} g t) = 0$
+    - $ 0 = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2 $  
+    - Factorize: $ t (v_0 \sin\theta - \frac{1}{2} g t) = 0 $
 - Solutions: $t = 0$ (launch) or $t = \frac{2 v_0 \sin\theta}{g}$ (landing).
 - Range: $R = x(t_{\text{land}}) = v_0 \cos\theta \cdot \frac{2 v_0 \sin\theta}{g} = \frac{v_0^2 \sin(2\theta)}{g}$, using the identity $\sin(2\theta) = 2 \sin\theta \cos\theta$.
 
 ### Dependence on Angle
 
 - $R = \frac{v_0^2 \sin(2\theta)}{g}$ peaks when $\sin(2\theta) = 1$, i.e., $2\theta = 90^\circ$, so $\theta = 45^\circ$.
-- Range is symmetric: $\theta$ and $90^\circ - \theta$ yield the same $R$ (e.g., $30^\circ$ and $60^\circ $).
+- Range is symmetric: $\theta$ and $ 90^\circ - \theta $ yield the same $R$ (e.g., $30^\circ$ and $ 60^\circ $).
 - At $\theta = 0^\circ$ or $90^\circ$, $R = 0$.
 
 ### Other Parameters
