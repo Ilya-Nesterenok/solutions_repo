@@ -15,8 +15,8 @@ Projectile motion describes an object launched into the air, influenced only by 
 Consider a projectile launched from the origin $(x_0, y_0) = (0, 0)$ with initial velocity $v_0$ at an angle $\theta$ from the horizontal. Gravity acts downward with acceleration $g$, typically $9.8 \, \text{m/s}^2$. We break the motion into horizontal ($x$) and vertical ($y$) components.
 
 - **Horizontal motion**: No acceleration ($a_x = 0$).
-    - Initial velocity: $v_{x0} = v_0 \cos\theta$
-    - Equation: $x(t) = v_0 \cos\theta \cdot t$
+    - Initial velocity: $ v_{x0} = v_0 \cos\theta $
+    - Equation: $ x(t) = v_0 \cos\theta \cdot t $
 
 - **Vertical motion**: Constant acceleration $a_y = -g$.
     - Initial velocity: $v_{y0} = v_0 \sin\theta$
@@ -28,8 +28,13 @@ These are the parametric equations of motion. The trajectory is a parabola, as $
 - From $x = v_0 \cos\theta \cdot t$, solve for $t = \frac{x}{v_0 \cos\theta}$.
 - Substitute into $y(t)$:  
 
-  $$y = v_0 \sin\theta \cdot \frac{x}{v_0 \cos\theta} - \frac{1}{2} g \left(\frac{x}{v_0 \cos\theta}\right)^2$$ 
-  $$y = x \tan\theta - \frac{g x^2}{2 v_0^2 \cos^2\theta}$$
+  $$
+  y = v_0 \sin\theta \cdot \frac{x}{v_0 \cos\theta} - \frac{1}{2} g \left(\frac{x}{v_0 \cos\theta}\right)^2
+  $$
+
+  $$
+  y = x \tan\theta - \frac{g x^2}{2 v_0^2 \cos^2\theta}
+  $$
 
 This is the equation of a parabola, parameterized by $v_0$, $\theta$, and $g$.
 
