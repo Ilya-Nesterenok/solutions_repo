@@ -38,7 +38,9 @@ $$
 
 For an object in uniform circular motion, the centripetal force $F_c$ required to maintain the orbit is:
 
-$F_c = \frac{m v^2}{r}$
+$$
+F_c = \frac{m v^2}{r}
+$$
 
 - $v$: Orbital speed
 - $r$: Radius of the circular path
@@ -123,20 +125,20 @@ $$
 This relationship is a cornerstone of celestial mechanics with wide-ranging applications:
 
 1. **Mass Determination**:
-    - Rearrange the equation to solve for $ M $:
+  - Rearrange the equation to solve for $M$:
      $$
      M = \frac{4 \pi^2 r^3}{G T^2}
      $$
-    - By measuring $T$ and $r$ of an orbiting body (e.g., a moon or satellite), we can calculate the mass of the central body (e.g., a planet or star).
+  - By measuring $T$ and $r$ of an orbiting body (e.g., a moon or satellite), we can calculate the mass of the central body (e.g., a planet or star).
 
 2. **Planetary Orbits**:
-    - For objects orbiting the same central mass (e.g., planets around the Sun), the constant $\frac{4 \pi^2}{G M}$ is identical, enabling comparisons across the system.
+  - For objects orbiting the same central mass (e.g., planets around the Sun), the constant $\frac{4 \pi^2}{G M}$ is identical, enabling comparisons across the system.
 
 3. **Satellite Design**:
-    - Engineers use this law to calculate the orbital radius required for a specific period (e.g., geostationary satellites with $T = 24 \, \text{hours}$).
+  - Engineers use this law to calculate the orbital radius required for a specific period (e.g., geostationary satellites with $T = 24 \, \text{hours}$).
 
 4. **Cosmological Insights**:
-    - It applies to exoplanets, binary stars, and galactic dynamics, aiding in mass estimation and system characterization.
+  - It applies to exoplanets, binary stars, and galactic dynamics, aiding in mass estimation and system characterization.
 
 ---
 
@@ -147,18 +149,18 @@ Let’s apply the relationship to practical scenarios.
 ### Example 1: The Moon Orbiting Earth
 
 - **Given**:
-  - Orbital Period: $T = 27.3 \, \text{days} = 27.3 \times 86,400 \, \text{s} = 2,358,720 \, \text{s}$
-  - Orbital Radius: $r = 384,000 \, \text{km} = 3.84 \times 10^8 \, \text{m}$
-  - Gravitational Constant: $G = 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$
+    - Orbital Period: $T = 27.3 \, \text{days} = 27.3 \times 86,400 \, \text{s} = 2,358,720 \, \text{s}$
+    - Orbital Radius: $r = 384,000 \, \text{km} = 3.84 \times 10^8 \, \text{m}$
+    - Gravitational Constant: $G = 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$
 
 - **Calculate Earth’s Mass**:
   $$
   M = \frac{4 \pi^2 r^3}{G T^2}
   $$
 
-  - $r^3 = (3.84 \times 10^8)^3 = 5.66231 \times 10^{25} \, \text{m}^3$
-  - $T^2 = (2,358,720)^2 = 5.5636 \times 10^{12} \, \text{s}^2$
-  - $4 \pi^2 \approx 39.4784$
+    - $r^3 = (3.84 \times 10^8)^3 = 5.66231 \times 10^{25} \, \text{m}^3$
+    - $T^2 = (2,358,720)^2 = 5.5636 \times 10^{12} \, \text{s}^2$
+    - $4 \pi^2 \approx 39.4784$
 
   Numerator:
   $$
@@ -181,16 +183,16 @@ Let’s apply the relationship to practical scenarios.
 Using astronomical units (AU) and years for simplicity (where $T^2/r^3$ is constant for the Sun):
 
 - **Earth**:
-    - $T = 1 \, \text{year}$
-    - $r = 1 \, \text{AU}$
-    - $\frac{T^2}{r^3} = \frac{1^2}{1^3} = 1$
+  - $T = 1 \, \text{year}$
+  - $r = 1 \, \text{AU}$
+  - $\frac{T^2}{r^3} = \frac{1^2}{1^3} = 1$
 
 - **Mars**:
-    - $T = 1.88 \, \text{years}$
-    - $r = 1.52 \, \text{AU}$
-    - $T^2 = (1.88)^2 = 3.5344$
-    - $r^3 = (1.52)^3 = 3.512$
-    - $\frac{T^2}{r^3} = \frac{3.5344}{3.512} \approx 1.006$
+  - $T = 1.88 \, \text{years}$
+  - $r = 1.52 \, \text{AU}$
+  - $T^2 = (1.88)^2 = 3.5344$
+  - $r^3 = (1.52)^3 = 3.512$
+  - $\frac{T^2}{r^3} = \frac{3.5344}{3.512} \approx 1.006$
 
 The near-constant ratio demonstrates Kepler’s Third Law across the Solar System.
 
