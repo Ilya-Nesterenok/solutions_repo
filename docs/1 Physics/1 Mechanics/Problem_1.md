@@ -16,17 +16,14 @@ Consider a projectile launched from the origin $(x_0, y_0) = (0, 0)$ with initia
 
 - **Horizontal motion**: No acceleration ($a_x = 0$).
   - Initial velocity:
-  
-   $$v_{x0} = v_0 \cos\theta$$
-  
+    $$v_{x0} = v_0 \cos\theta$$
   - Equation: 
-  
-  $$x(t) = v_0 \cos\theta \cdot t$$
+    $$x(t) = v_0 \cos\theta \cdot t$$
 
 - **Vertical motion**: Constant acceleration $a_y = -g$.
-    - Initial velocity: $v_{y0} = v_0 \sin\theta$
-    - Velocity: $v_y(t) = v_{y0} - g t$
-    - Position: $y(t) = v_{y0} t - \frac{1}{2} g t^2 = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2$
+  - Initial velocity: $v_{y0} = v_0 \sin\theta$
+  - Velocity: $v_y(t) = v_{y0} - g t$
+  - Position: $y(t) = v_{y0} t - \frac{1}{2} g t^2 = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2$
 
 These are the parametric equations of motion. The trajectory is a parabola, as $y(x)$ can be derived by eliminating $t$:
 
