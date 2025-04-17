@@ -155,10 +155,14 @@ F_g = \frac{G M m}{r^2}
 </ul>
 <h3 id="step-3-equating-forces">Step 3: Equating Forces</h3>
 <p>In a stable circular orbit, the gravitational force acts as the centripetal force:</p>
-<p><span class="arithmatex">\(\frac{G M m}{r^2} = \frac{m v^2}{r}\)</span></p>
+<div class="arithmatex">\[
+\frac{G M m}{r^2} = \frac{m v^2}{r}
+\]</div>
 <h3 id="step-4-simplify-the-equation">Step 4: Simplify the Equation</h3>
 <p>Divide both sides by <span class="arithmatex">\(m\)</span> (since <span class="arithmatex">\(m \neq 0\)</span>):</p>
-<div class="arithmatex">\[\frac{G M}{r^2} = \frac{v^2}{r}\]</div>
+<div class="arithmatex">\[
+\frac{G M}{r^2} = \frac{v^2}{r}
+\]</div>
 <p>Multiply both sides by <span class="arithmatex">\(r\)</span>:</p>
 <div class="arithmatex">\[
 \frac{G M}{r} = v^2
@@ -202,30 +206,34 @@ T^2 = \left( \frac{4 \pi^2}{G M} \right) r^3
 <h2 id="implications-in-astronomy">Implications in Astronomy</h2>
 <p>This relationship is a cornerstone of celestial mechanics with wide-ranging applications:</p>
 <ol>
-<li><strong>Mass Determination</strong>:</li>
-<li>Rearrange the equation to solve for $ M $:
-     $$
-     M = \frac{4 \pi^2 r^3}{G T^2}
-     $$</li>
 <li>
-<p>By measuring <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(r\)</span> of an orbiting body (e.g., a moon or satellite), we can calculate the mass of the central body (e.g., a planet or star).</p>
+<p><strong>Mass Determination</strong>:</p>
+<ul>
+<li>Rearrange the equation to solve for $ M $:
+ $$
+ M = \frac{4 \pi^2 r^3}{G T^2}
+ $$</li>
+<li>By measuring <span class="arithmatex">\(T\)</span> and <span class="arithmatex">\(r\)</span> of an orbiting body (e.g., a moon or satellite), we can calculate the mass of the central body (e.g., a planet or star).</li>
+</ul>
 </li>
 <li>
 <p><strong>Planetary Orbits</strong>:</p>
-</li>
-<li>
-<p>For objects orbiting the same central mass (e.g., planets around the Sun), the constant <span class="arithmatex">\(\frac{4 \pi^2}{G M}\)</span> is identical, enabling comparisons across the system.</p>
+<ul>
+<li>For objects orbiting the same central mass (e.g., planets around the Sun), the constant <span class="arithmatex">\(\frac{4 \pi^2}{G M}\)</span> is identical, enabling comparisons across the system.</li>
+</ul>
 </li>
 <li>
 <p><strong>Satellite Design</strong>:</p>
-</li>
-<li>
-<p>Engineers use this law to calculate the orbital radius required for a specific period (e.g., geostationary satellites with <span class="arithmatex">\(T = 24 \, \text{hours}\)</span>).</p>
+<ul>
+<li>Engineers use this law to calculate the orbital radius required for a specific period (e.g., geostationary satellites with <span class="arithmatex">\(T = 24 \, \text{hours}\)</span>).</li>
+</ul>
 </li>
 <li>
 <p><strong>Cosmological Insights</strong>:</p>
-</li>
+<ul>
 <li>It applies to exoplanets, binary stars, and galactic dynamics, aiding in mass estimation and system characterization.</li>
+</ul>
+</li>
 </ol>
 <hr/>
 <h2 id="real-world-examples">Real-World Examples</h2>
@@ -267,20 +275,24 @@ T^2 = \left( \frac{4 \pi^2}{G M} \right) r^3
 <h3 id="example-2-earth-and-mars-around-the-sun">Example 2: Earth and Mars Around the Sun</h3>
 <p>Using astronomical units (AU) and years for simplicity (where <span class="arithmatex">\(T^2/r^3\)</span> is constant for the Sun):</p>
 <ul>
-<li><strong>Earth</strong>:</li>
+<li>
+<p><strong>Earth</strong>:</p>
+<ul>
 <li><span class="arithmatex">\(T = 1 \, \text{year}\)</span></li>
 <li><span class="arithmatex">\(r = 1 \, \text{AU}\)</span></li>
-<li>
-<p><span class="arithmatex">\(\frac{T^2}{r^3} = \frac{1^2}{1^3} = 1\)</span></p>
+<li><span class="arithmatex">\(\frac{T^2}{r^3} = \frac{1^2}{1^3} = 1\)</span></li>
+</ul>
 </li>
 <li>
 <p><strong>Mars</strong>:</p>
-</li>
+<ul>
 <li><span class="arithmatex">\(T = 1.88 \, \text{years}\)</span></li>
 <li><span class="arithmatex">\(r = 1.52 \, \text{AU}\)</span></li>
 <li><span class="arithmatex">\(T^2 = (1.88)^2 = 3.5344\)</span></li>
 <li><span class="arithmatex">\(r^3 = (1.52)^3 = 3.512\)</span></li>
 <li><span class="arithmatex">\(\frac{T^2}{r^3} = \frac{3.5344}{3.512} \approx 1.006\)</span></li>
+</ul>
+</li>
 </ul>
 <p>The near-constant ratio demonstrates Kepler’s Third Law across the Solar System.</p>
 <hr/>
@@ -380,17 +392,17 @@ print(f"Theoretical slope (4π²): {theoretical_slope:.3f}")
 </code></pre>
 <h3 id="explanation">Explanation</h3>
 <ul>
-<li><strong>Setup</strong>: Normalized units ($ G = 1 $, $ M = 1 $) simplify calculations. We test radii from 1 to 5.</li>
+<li><strong>Setup</strong>: Normalized units (<span class="arithmatex">\(G = 1\)</span>, <span class="arithmatex">\(M = 1\)</span>) simplify calculations. We test radii from 1 to 5.</li>
 <li><strong>Dynamics</strong>: The gravitational acceleration is modeled in 2D Cartesian coordinates, integrated numerically.</li>
-<li><strong>Period</strong>: Detected via an event when $ y = 0 $ and increasing, marking a full orbit.</li>
-<li><strong>Verification</strong>: We plot $ T^2 $ vs. $ r^3 $, expecting a slope of $ 4 \pi^2 \approx 39.478 $.</li>
+<li><strong>Period</strong>: Detected via an event when <span class="arithmatex">\(y = 0\)</span> and increasing, marking a full orbit.</li>
+<li><strong>Verification</strong>: We plot <span class="arithmatex">\(T^2\)</span> vs. <span class="arithmatex">\(r^3\)</span>, expecting a slope of <span class="arithmatex">\(4 \pi^2 \approx 39.478\)</span>.</li>
 </ul>
 <h3 id="results">Results</h3>
 <p><img alt="Orbits Graph" src="../Problem1GraphsAndScripts/plotOrbits.png"/></p>
 <p><img alt="Slope Graph" src="../Problem1GraphsAndScripts/plotSlopeVerification.png"/></p>
 <ul>
 <li><strong>Orbits</strong>: The first plot shows perfect circles, confirming the simulation’s accuracy.</li>
-<li><strong>Relationship</strong>: The second plot is linear, with the simulated slope closely matching $ 4 \pi^2 $, verifying $ T^2 \propto r^3 $.</li>
+<li><strong>Relationship</strong>: The second plot is linear, with the simulated slope closely matching <span class="arithmatex">\(4 \pi^2\)</span>, verifying <span class="arithmatex">\(T^2 \propto r^3\)</span>.</li>
 </ul>
 <hr/>
 <h2 id="extension-to-elliptical-orbits-and-beyond">Extension to Elliptical Orbits and Beyond</h2>
@@ -400,8 +412,8 @@ print(f"Theoretical slope (4π²): {theoretical_slope:.3f}")
 T^2 = \frac{4 \pi^2}{G M} a^3
 \]</div>
 <ul>
-<li>$ a $: Semi-major axis (half the longest diameter of the ellipse)</li>
-<li>For circular orbits, $ a = r $, making it a special case.</li>
+<li><span class="arithmatex">\(a\)</span>: Semi-major axis (half the longest diameter of the ellipse)</li>
+<li>For circular orbits, <span class="arithmatex">\(a = r\)</span>, making it a special case.</li>
 <li>This form accounts for energy and angular momentum conservation in non-circular paths.</li>
 </ul>
 <h3 id="broader-applications">Broader Applications</h3>
@@ -413,7 +425,7 @@ T^2 = \frac{4 \pi^2}{G M} a^3
 </ul>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>The relationship $ T^2 = \frac{4 \pi^2}{G M} r^3 $ for circular orbits, derived from gravitational and centripetal forces, is a powerful tool in astronomy. It enables mass calculations, orbit predictions, and system analysis, as demonstrated by examples like the Moon and Mars. Our simulation confirmed the proportionality $ T^2 \propto r^3 $, and the extension to elliptical orbits broadens its scope. Kepler’s Third Law bridges fundamental physics and cosmic exploration, remaining essential for understanding gravitational dynamics across the universe.</p>
+<p>The relationship <span class="arithmatex">\(T^2 = \frac{4 \pi^2}{G M} r^3\)</span> for circular orbits, derived from gravitational and centripetal forces, is a powerful tool in astronomy. It enables mass calculations, orbit predictions, and system analysis, as demonstrated by examples like the Moon and Mars. Our simulation confirmed the proportionality <span class="arithmatex">\(T^2 \propto r^3\)</span>, and the extension to elliptical orbits broadens its scope. Kepler’s Third Law bridges fundamental physics and cosmic exploration, remaining essential for understanding gravitational dynamics across the universe.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
