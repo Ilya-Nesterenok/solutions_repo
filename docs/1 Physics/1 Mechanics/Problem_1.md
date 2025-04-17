@@ -58,7 +58,7 @@ The range $R$ is the horizontal distance traveled when the projectile returns to
 ### Dependence on Angle
 
 - $R = \frac{v_0^2 \sin(2\theta)}{g}$ peaks when $\sin(2\theta) = 1$, i.e., $2\theta = 90^\circ$, so $\theta = 45^\circ$.
-- Range is symmetric: $\theta$ and $ 90^\circ - \theta $ yield the same $R$ (e.g., $30^\circ$ and $ 60^\circ $).
+- Range is symmetric: $\theta$ and $ 90^\circ - \theta $ yield the same $R$ (e.g., $30^\circ$ and $60^\circ$).
 - At $\theta = 0^\circ$ or $90^\circ$, $R = 0$.
 
 ### Other Parameters
@@ -122,8 +122,17 @@ plt.show()
 
 ### Output Description
 
+![Range vs Angle 20](RangeVSAngle20.png)
+
+![Range vs Angle 50](RangeVSAngle50.png)
+
+![Range vs Angle Different](RangeVSAngleDIFFERENT.png)
+
 - **First Plot**: Shows $R$ vs. $\theta$ for $v_0 = 20 \, \text{m/s}$, $g = 9.8 \, \text{m/s}^2$. Peak range is at 45°, around 40.8 m.
-- **Second Plot**: Compares curves for different $v_0$ and $g$, illustrating quadratic scaling with $v_0$ and inverse scaling with $g$.
+
+- **Second Plot**: Shows $R$ vs. $\theta$ for $v_0 = 50 \, \text{m/s}$, $g = 9.8 \, \text{m/s}^2$. Peak range is at 45°, around 40.8 m.
+
+- **Third Plot**: Compares curves for different $v_0$ and $g$, illustrating quadratic scaling with $v_0$ and inverse scaling with $g$.
 
 ## Discussion and Limitations
 
