@@ -27,6 +27,7 @@ Where:
 - $t$: Time (s)
 
 The terms are:
+
 - $\frac{d^2\theta}{dt^2}$: Angular acceleration
 - $\frac{b}{m} \frac{d\theta}{dt}$: Damping force per unit mass
 - $\frac{g}{l} \sin\theta$: Gravitational restoring force
@@ -41,6 +42,7 @@ $$
 $$
 
 Where:
+
 - $\omega_0 = \sqrt{\frac{g}{l}}$ : Natural frequency
 - $\zeta = \frac{b}{2m\omega_0}$ : Damping ratio
 
@@ -60,7 +62,9 @@ $$
 
 Discriminant:
 
-$\Delta = 4\omega_0^2 (\zeta^2 - 1)$
+$$
+\Delta = 4\omega_0^2 (\zeta^2 - 1)
+$$
 
 For underdamping: $(\zeta < 1)$
 
@@ -74,7 +78,7 @@ $$
 \theta_h(t) = e^{-\zeta\omega_0 t} \left( C_1 \cos(\omega t) + C_2 \sin(\omega t) \right), \quad \omega = \omega_0 \sqrt{1 - \zeta^2}
 $$
 
-This shows decaying oscillations at the damped frequency \(\omega\).
+This shows decaying oscillations at the damped frequency $\omega$.
 
 #### Particular Solution (Forced Case)
 
@@ -120,25 +124,25 @@ $$
 
 ### Resonance
 
-Amplitude \(D\) maximizes near $\omega_d = \omega_0$. At resonance:
+Amplitude $D$ maximizes near $\omega_d = \omega_0$. At resonance:
 
 $$
 D = \frac{F_0 / (m l)}{2\zeta\omega_0^2}
 $$
 
-Low \(\zeta\) amplifies oscillations significantly.
+Low $\zeta$ amplifies oscillations significantly.
 
 ## 2. Analysis of Dynamics
 
 ### Parameter Effects
 
-- **Damping (\(b\))**: Higher \(b\) increases \(\zeta\), reducing amplitude and transient duration.
-- **Driving Amplitude (\(F_0\))**: Small \(F_0\) yields periodic motion; large \(F_0\) can induce chaos.
-- **Driving Frequency (\(\omega_d\))**: Near \(\omega_0\), resonance occurs; otherwise, complex motion emerges.
+- **Damping ($b$)**: Higher $b$ increases $\zeta$, reducing amplitude and transient duration.
+- **Driving Amplitude ($F_0$)**: Small $F_0$ yields periodic motion; large $F_0$ can induce chaos.
+- **Driving Frequency ($\omega_d$)**: Near $\omega_0$, resonance occurs; otherwise, complex motion emerges.
 
 ### Nonlinearity and Chaos
 
-The \(\sin\theta\) term makes the system nonlinear. Small \(F_0\) produces harmonic motion, but larger \(F_0\) leads to **period doubling** (oscillations repeating over multiple cycles) and eventually **chaos**—aperiodic, sensitive motion.
+The $\sin\theta$ term makes the system nonlinear. Small $F_0$ produces harmonic motion, but larger $F_0$ leads to **period doubling** (oscillations repeating over multiple cycles) and eventually **chaos**—aperiodic, sensitive motion.
 
 ## 3. Practical Applications
 
@@ -237,14 +241,14 @@ bifurcation_diagram()
 ### Results
 
 - **F0 = 1 N**:
-  - **Time Series**: Regular oscillations.
-  - **Phase Diagram**: Closed loops (periodic).
-  - **Poincaré Section**: Few points (periodic orbit).
+    - **Time Series**: Regular oscillations.
+    - **Phase Diagram**: Closed loops (periodic).
+    - **Poincaré Section**: Few points (periodic orbit).
 - **F0 = 15 N**:
-  - **Time Series**: Irregular motion.
-  - **Phase Diagram**: Dense trajectories.
-  - **Poincaré Section**: Scattered points (chaos).
-- **Bifurcation Diagram**: Shows periodicity, period doubling, and chaos as \(F_0\) increases.
+    - **Time Series**: Irregular motion.
+    - **Phase Diagram**: Dense trajectories.
+    - **Poincaré Section**: Scattered points (chaos).
+- **Bifurcation Diagram**: Shows periodicity, period doubling, and chaos as $F_0$ increases.
 
 ### Small Driving Force (1N)
 ![Pendulum Dynamics for F0=1.0](ImagesP2/pendulum_F0_small.png)
@@ -260,6 +264,6 @@ This diagram displays the transition to chaos as the driving force increases.
 
 ## Discussion
 
-The forced damped pendulum transitions from predictable oscillations to chaotic behavior, reflecting the complexity of nonlinear systems. Limitations include the small-angle approximation’s failure at large \(\theta\) and assumptions of linear damping. This analysis and simulation offer a window into dynamics with broad real-world relevance.
+The forced damped pendulum transitions from predictable oscillations to chaotic behavior, reflecting the complexity of nonlinear systems. Limitations include the small-angle approximation’s failure at large $\theta$ and assumptions of linear damping. This analysis and simulation offer a window into dynamics with broad real-world relevance.
 
 --- 
