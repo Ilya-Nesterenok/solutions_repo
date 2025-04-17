@@ -47,13 +47,17 @@ $F_c = \frac{m v^2}{r}$
 
 In a stable circular orbit, the gravitational force acts as the centripetal force:
 
-$\frac{G M m}{r^2} = \frac{m v^2}{r}$
+$$
+\frac{G M m}{r^2} = \frac{m v^2}{r}
+$$
 
 ### Step 4: Simplify the Equation
 
 Divide both sides by $m$ (since $m \neq 0$):
 
-$$\frac{G M}{r^2} = \frac{v^2}{r}$$
+$$
+\frac{G M}{r^2} = \frac{v^2}{r}
+$$
 
 Multiply both sides by $r$:
 
@@ -119,20 +123,20 @@ $$
 This relationship is a cornerstone of celestial mechanics with wide-ranging applications:
 
 1. **Mass Determination**:
-   - Rearrange the equation to solve for $ M $:
+    - Rearrange the equation to solve for $ M $:
      $$
      M = \frac{4 \pi^2 r^3}{G T^2}
      $$
-   - By measuring $T$ and $r$ of an orbiting body (e.g., a moon or satellite), we can calculate the mass of the central body (e.g., a planet or star).
+    - By measuring $T$ and $r$ of an orbiting body (e.g., a moon or satellite), we can calculate the mass of the central body (e.g., a planet or star).
 
 2. **Planetary Orbits**:
-   - For objects orbiting the same central mass (e.g., planets around the Sun), the constant $\frac{4 \pi^2}{G M}$ is identical, enabling comparisons across the system.
+    - For objects orbiting the same central mass (e.g., planets around the Sun), the constant $\frac{4 \pi^2}{G M}$ is identical, enabling comparisons across the system.
 
 3. **Satellite Design**:
-   - Engineers use this law to calculate the orbital radius required for a specific period (e.g., geostationary satellites with $T = 24 \, \text{hours}$).
+    - Engineers use this law to calculate the orbital radius required for a specific period (e.g., geostationary satellites with $T = 24 \, \text{hours}$).
 
 4. **Cosmological Insights**:
-   - It applies to exoplanets, binary stars, and galactic dynamics, aiding in mass estimation and system characterization.
+    - It applies to exoplanets, binary stars, and galactic dynamics, aiding in mass estimation and system characterization.
 
 ---
 
@@ -177,16 +181,16 @@ Let’s apply the relationship to practical scenarios.
 Using astronomical units (AU) and years for simplicity (where $T^2/r^3$ is constant for the Sun):
 
 - **Earth**:
-  - $T = 1 \, \text{year}$
-  - $r = 1 \, \text{AU}$
-  - $\frac{T^2}{r^3} = \frac{1^2}{1^3} = 1$
+    - $T = 1 \, \text{year}$
+    - $r = 1 \, \text{AU}$
+    - $\frac{T^2}{r^3} = \frac{1^2}{1^3} = 1$
 
 - **Mars**:
-  - $T = 1.88 \, \text{years}$
-  - $r = 1.52 \, \text{AU}$
-  - $T^2 = (1.88)^2 = 3.5344$
-  - $r^3 = (1.52)^3 = 3.512$
-  - $\frac{T^2}{r^3} = \frac{3.5344}{3.512} \approx 1.006$
+    - $T = 1.88 \, \text{years}$
+    - $r = 1.52 \, \text{AU}$
+    - $T^2 = (1.88)^2 = 3.5344$
+    - $r^3 = (1.52)^3 = 3.512$
+    - $\frac{T^2}{r^3} = \frac{3.5344}{3.512} \approx 1.006$
 
 The near-constant ratio demonstrates Kepler’s Third Law across the Solar System.
 
@@ -293,10 +297,10 @@ print(f"Theoretical slope (4π²): {theoretical_slope:.3f}")
 
 ### Explanation
 
-- **Setup**: Normalized units ($ G = 1 $, $ M = 1 $) simplify calculations. We test radii from 1 to 5.
+- **Setup**: Normalized units ($G = 1$, $M = 1$) simplify calculations. We test radii from 1 to 5.
 - **Dynamics**: The gravitational acceleration is modeled in 2D Cartesian coordinates, integrated numerically.
-- **Period**: Detected via an event when $ y = 0 $ and increasing, marking a full orbit.
-- **Verification**: We plot $ T^2 $ vs. $ r^3 $, expecting a slope of $ 4 \pi^2 \approx 39.478 $.
+- **Period**: Detected via an event when $y = 0$ and increasing, marking a full orbit.
+- **Verification**: We plot $T^2$ vs. $r^3$, expecting a slope of $4 \pi^2 \approx 39.478$.
 
 ### Results
 
@@ -305,7 +309,7 @@ print(f"Theoretical slope (4π²): {theoretical_slope:.3f}")
 ![Slope Graph](Problem1GraphsAndScripts/plotSlopeVerification.png)
 
 - **Orbits**: The first plot shows perfect circles, confirming the simulation’s accuracy.
-- **Relationship**: The second plot is linear, with the simulated slope closely matching $ 4 \pi^2 $, verifying $ T^2 \propto r^3 $.
+- **Relationship**: The second plot is linear, with the simulated slope closely matching $4 \pi^2$, verifying $T^2 \propto r^3$.
 
 ---
 
@@ -319,8 +323,8 @@ $$
 T^2 = \frac{4 \pi^2}{G M} a^3
 $$
 
-- $ a $: Semi-major axis (half the longest diameter of the ellipse)
-- For circular orbits, $ a = r $, making it a special case.
+- $a$: Semi-major axis (half the longest diameter of the ellipse)
+- For circular orbits, $a = r$, making it a special case.
 - This form accounts for energy and angular momentum conservation in non-circular paths.
 
 ### Broader Applications
@@ -334,4 +338,4 @@ $$
 
 ## Conclusion
 
-The relationship $ T^2 = \frac{4 \pi^2}{G M} r^3 $ for circular orbits, derived from gravitational and centripetal forces, is a powerful tool in astronomy. It enables mass calculations, orbit predictions, and system analysis, as demonstrated by examples like the Moon and Mars. Our simulation confirmed the proportionality $ T^2 \propto r^3 $, and the extension to elliptical orbits broadens its scope. Kepler’s Third Law bridges fundamental physics and cosmic exploration, remaining essential for understanding gravitational dynamics across the universe.
+The relationship $T^2 = \frac{4 \pi^2}{G M} r^3$ for circular orbits, derived from gravitational and centripetal forces, is a powerful tool in astronomy. It enables mass calculations, orbit predictions, and system analysis, as demonstrated by examples like the Moon and Mars. Our simulation confirmed the proportionality $T^2 \propto r^3$, and the extension to elliptical orbits broadens its scope. Kepler’s Third Law bridges fundamental physics and cosmic exploration, remaining essential for understanding gravitational dynamics across the universe.
