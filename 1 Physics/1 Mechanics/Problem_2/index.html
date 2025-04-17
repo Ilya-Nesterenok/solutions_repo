@@ -173,19 +173,23 @@
 <li><span class="arithmatex">\(\omega_d\)</span>: Driving frequency (rad/s)</li>
 <li><span class="arithmatex">\(t\)</span>: Time (s)</li>
 </ul>
-<p>The terms are:
-- <span class="arithmatex">\(\frac{d^2\theta}{dt^2}\)</span>: Angular acceleration
-- <span class="arithmatex">\(\frac{b}{m} \frac{d\theta}{dt}\)</span>: Damping force per unit mass
-- <span class="arithmatex">\(\frac{g}{l} \sin\theta\)</span>: Gravitational restoring force
-- <span class="arithmatex">\(\frac{F_0}{m l} \cos(\omega_d t)\)</span>: External driving force</p>
+<p>The terms are:</p>
+<ul>
+<li><span class="arithmatex">\(\frac{d^2\theta}{dt^2}\)</span>: Angular acceleration</li>
+<li><span class="arithmatex">\(\frac{b}{m} \frac{d\theta}{dt}\)</span>: Damping force per unit mass</li>
+<li><span class="arithmatex">\(\frac{g}{l} \sin\theta\)</span>: Gravitational restoring force</li>
+<li><span class="arithmatex">\(\frac{F_0}{m l} \cos(\omega_d t)\)</span>: External driving force</li>
+</ul>
 <h3 id="small-angle-approximation">Small-Angle Approximation</h3>
 <p>For small angles (<span class="arithmatex">\(\theta \ll 1\)</span>), <span class="arithmatex">\(\sin\theta \approx \theta\)</span>, linearizing the equation:</p>
 <div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + 2\zeta\omega_0 \frac{d\theta}{dt} + \omega_0^2 \theta = \frac{F_0}{m l} \cos(\omega_d t)
 \]</div>
-<p>Where:
-- <span class="arithmatex">\(\omega_0 = \sqrt{\frac{g}{l}}\)</span> : Natural frequency
-- <span class="arithmatex">\(\zeta = \frac{b}{2m\omega_0}\)</span> : Damping ratio</p>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(\omega_0 = \sqrt{\frac{g}{l}}\)</span> : Natural frequency</li>
+<li><span class="arithmatex">\(\zeta = \frac{b}{2m\omega_0}\)</span> : Damping ratio</li>
+</ul>
 <h4 id="homogeneous-solution-unforced-case">Homogeneous Solution (Unforced Case)</h4>
 <p>Set <span class="arithmatex">\(F_0 = 0\)</span>:</p>
 <div class="arithmatex">\[
@@ -196,7 +200,9 @@
 r^2 + 2\zeta\omega_0 r + \omega_0^2 = 0
 \]</div>
 <p>Discriminant:</p>
-<p><span class="arithmatex">\(\Delta = 4\omega_0^2 (\zeta^2 - 1)\)</span></p>
+<div class="arithmatex">\[
+\Delta = 4\omega_0^2 (\zeta^2 - 1)
+\]</div>
 <p>For underdamping: <span class="arithmatex">\((\zeta &lt; 1)\)</span></p>
 <div class="arithmatex">\[
 r = -\zeta\omega_0 \pm i \omega_0 \sqrt{1 - \zeta^2}
@@ -341,14 +347,18 @@ bifurcation_diagram()
 </code></pre>
 <h3 id="results">Results</h3>
 <ul>
-<li><strong>F0 = 1 N</strong>:</li>
+<li><strong>F0 = 1 N</strong>:<ul>
 <li><strong>Time Series</strong>: Regular oscillations.</li>
 <li><strong>Phase Diagram</strong>: Closed loops (periodic).</li>
 <li><strong>Poincaré Section</strong>: Few points (periodic orbit).</li>
-<li><strong>F0 = 15 N</strong>:</li>
+</ul>
+</li>
+<li><strong>F0 = 15 N</strong>:<ul>
 <li><strong>Time Series</strong>: Irregular motion.</li>
 <li><strong>Phase Diagram</strong>: Dense trajectories.</li>
 <li><strong>Poincaré Section</strong>: Scattered points (chaos).</li>
+</ul>
+</li>
 <li><strong>Bifurcation Diagram</strong>: Shows periodicity, period doubling, and chaos as <span class="arithmatex">\(F_0\)</span> increases.</li>
 </ul>
 <h3 id="small-driving-force-1n">Small Driving Force (1N)</h3>
