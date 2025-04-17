@@ -149,18 +149,18 @@ Let’s apply the relationship to practical scenarios.
 ### Example 1: The Moon Orbiting Earth
 
 - **Given**:
-    - Orbital Period: $T = 27.3 \, \text{days} = 27.3 \times 86,400 \, \text{s} = 2,358,720 \, \text{s}$
-    - Orbital Radius: $r = 384,000 \, \text{km} = 3.84 \times 10^8 \, \text{m}$
-    - Gravitational Constant: $G = 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$
+  - Orbital Period: $T = 27.3 \, \text{days} = 27.3 \times 86,400 \, \text{s} = 2,358,720 \, \text{s}$
+  - Orbital Radius: $r = 384,000 \, \text{km} = 3.84 \times 10^8 \, \text{m}$
+  - Gravitational Constant: $G = 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$
 
 - **Calculate Earth’s Mass**:
   $$
   M = \frac{4 \pi^2 r^3}{G T^2}
   $$
 
-    - $r^3 = (3.84 \times 10^8)^3 = 5.66231 \times 10^{25} \, \text{m}^3$
-    - $T^2 = (2,358,720)^2 = 5.5636 \times 10^{12} \, \text{s}^2$
-    - $4 \pi^2 \approx 39.4784$
+  - $r^3 = (3.84 \times 10^8)^3 = 5.66231 \times 10^{25} \, \text{m}^3$
+  - $T^2 = (2,358,720)^2 = 5.5636 \times 10^{12} \, \text{s}^2$
+  - $4 \pi^2 \approx 39.4784$
 
   Numerator:
   $$
