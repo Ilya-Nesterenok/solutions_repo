@@ -175,7 +175,7 @@
 <h3 id="dependence-on-angle">Dependence on Angle</h3>
 <ul>
 <li><span class="arithmatex">\(R = \frac{v_0^2 \sin(2\theta)}{g}\)</span> peaks when <span class="arithmatex">\(\sin(2\theta) = 1\)</span>, i.e., <span class="arithmatex">\(2\theta = 90^\circ\)</span>, so <span class="arithmatex">\(\theta = 45^\circ\)</span>.</li>
-<li>Range is symmetric: <span class="arithmatex">\(\theta\)</span> and $ 90^\circ - \theta $ yield the same <span class="arithmatex">\(R\)</span> (e.g., <span class="arithmatex">\(30^\circ\)</span> and $ 60^\circ $).</li>
+<li>Range is symmetric: <span class="arithmatex">\(\theta\)</span> and $ 90^\circ - \theta $ yield the same <span class="arithmatex">\(R\)</span> (e.g., <span class="arithmatex">\(30^\circ\)</span> and <span class="arithmatex">\(60^\circ\)</span>).</li>
 <li>At <span class="arithmatex">\(\theta = 0^\circ\)</span> or <span class="arithmatex">\(90^\circ\)</span>, <span class="arithmatex">\(R = 0\)</span>.</li>
 </ul>
 <h3 id="other-parameters">Other Parameters</h3>
@@ -234,9 +234,19 @@ plt.legend()
 plt.show()
 </code></pre>
 <h3 id="output-description">Output Description</h3>
+<p><img alt="Range vs Angle 20" src="../RangeVSAngle20.png"/></p>
+<p><img alt="Range vs Angle 50" src="../RangeVSAngle50.png"/></p>
+<p><img alt="Range vs Angle Different" src="../RangeVSAngleDIFFERENT.png"/></p>
 <ul>
-<li><strong>First Plot</strong>: Shows <span class="arithmatex">\(R\)</span> vs. <span class="arithmatex">\(\theta\)</span> for <span class="arithmatex">\(v_0 = 20 \, \text{m/s}\)</span>, <span class="arithmatex">\(g = 9.8 \, \text{m/s}^2\)</span>. Peak range is at 45°, around 40.8 m.</li>
-<li><strong>Second Plot</strong>: Compares curves for different <span class="arithmatex">\(v_0\)</span> and <span class="arithmatex">\(g\)</span>, illustrating quadratic scaling with <span class="arithmatex">\(v_0\)</span> and inverse scaling with <span class="arithmatex">\(g\)</span>.</li>
+<li>
+<p><strong>First Plot</strong>: Shows <span class="arithmatex">\(R\)</span> vs. <span class="arithmatex">\(\theta\)</span> for <span class="arithmatex">\(v_0 = 20 \, \text{m/s}\)</span>, <span class="arithmatex">\(g = 9.8 \, \text{m/s}^2\)</span>. Peak range is at 45°, around 40.8 m.</p>
+</li>
+<li>
+<p><strong>Second Plot</strong>: Shows <span class="arithmatex">\(R\)</span> vs. <span class="arithmatex">\(\theta\)</span> for <span class="arithmatex">\(v_0 = 50 \, \text{m/s}\)</span>, <span class="arithmatex">\(g = 9.8 \, \text{m/s}^2\)</span>. Peak range is at 45°, around 40.8 m.</p>
+</li>
+<li>
+<p><strong>Third Plot</strong>: Compares curves for different <span class="arithmatex">\(v_0\)</span> and <span class="arithmatex">\(g\)</span>, illustrating quadratic scaling with <span class="arithmatex">\(v_0\)</span> and inverse scaling with <span class="arithmatex">\(g\)</span>.</p>
+</li>
 </ul>
 <h2 id="discussion-and-limitations">Discussion and Limitations</h2>
 <h3 id="limitations-of-the-idealized-model">Limitations of the Idealized Model</h3>
