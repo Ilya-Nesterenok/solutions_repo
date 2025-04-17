@@ -129,24 +129,28 @@
 <p>Consider a projectile launched from the origin <span class="arithmatex">\((x_0, y_0) = (0, 0)\)</span> with initial velocity <span class="arithmatex">\(v_0\)</span> at an angle <span class="arithmatex">\(\theta\)</span> from the horizontal. Gravity acts downward with acceleration <span class="arithmatex">\(g\)</span>, typically <span class="arithmatex">\(9.8 \, \text{m/s}^2\)</span>. We break the motion into horizontal (<span class="arithmatex">\(x\)</span>) and vertical (<span class="arithmatex">\(y\)</span>) components.</p>
 <ul>
 <li><strong>Horizontal motion</strong>: No acceleration (<span class="arithmatex">\(a_x = 0\)</span>).</li>
-<li>Initial velocity: <span class="arithmatex">\(<span class="arithmatex">\(v_{x0} = v_0 \cos\theta\)</span>\)</span></li>
-<li>
-<p>Equation: <span class="arithmatex">\(<span class="arithmatex">\(x(t) = v_0 \cos\theta \cdot t\)</span>\)</span></p>
-</li>
-<li>
-<p><strong>Vertical motion</strong>: Constant acceleration <span class="arithmatex">\(a_y = -g\)</span>.</p>
-</li>
+<li>Initial velocity:</li>
+</ul>
+<p><span class="arithmatex">\(<span class="arithmatex">\(v_{x0} = v_0 \cos\theta\)</span>\)</span></p>
+<ul>
+<li>Equation: </li>
+</ul>
+<p><span class="arithmatex">\(<span class="arithmatex">\(x(t) = v_0 \cos\theta \cdot t\)</span>\)</span></p>
+<ul>
+<li><strong>Vertical motion</strong>: Constant acceleration <span class="arithmatex">\(a_y = -g\)</span>.<ul>
 <li>Initial velocity: <span class="arithmatex">\(v_{y0} = v_0 \sin\theta\)</span></li>
 <li>Velocity: <span class="arithmatex">\(v_y(t) = v_{y0} - g t\)</span></li>
 <li>Position: <span class="arithmatex">\(y(t) = v_{y0} t - \frac{1}{2} g t^2 = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2\)</span></li>
 </ul>
+</li>
+</ul>
 <p>These are the parametric equations of motion. The trajectory is a parabola, as <span class="arithmatex">\(y(x)\)</span> can be derived by eliminating <span class="arithmatex">\(t\)</span>:</p>
 <ul>
 <li>From <span class="arithmatex">\(x = v_0 \cos\theta \cdot t\)</span>, solve for <span class="arithmatex">\(t = \frac{x}{v_0 \cos\theta}\)</span>.</li>
-<li>Substitute into <span class="arithmatex">\(y(t)\)</span>:<br/>
-<span class="arithmatex">\(<span class="arithmatex">\(y = v_0 \sin\theta \cdot \frac{x}{v_0 \cos\theta} - \frac{1}{2} g \left(\frac{x}{v_0 \cos\theta}\right)^2\)</span>\)</span>
-<span class="arithmatex">\(<span class="arithmatex">\(y = x \tan\theta - \frac{g x^2}{2 v_0^2 \cos^2\theta}\)</span>\)</span></li>
+<li>Substitute into <span class="arithmatex">\(y(t)\)</span>:  </li>
 </ul>
+<p><span class="arithmatex">\(<span class="arithmatex">\(y = v_0 \sin\theta \cdot \frac{x}{v_0 \cos\theta} - \frac{1}{2} g \left(\frac{x}{v_0 \cos\theta}\right)^2\)</span>\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(y = x \tan\theta - \frac{g x^2}{2 v_0^2 \cos^2\theta}\)</span>\)</span></p>
 <p>This is the equation of a parabola, parameterized by <span class="arithmatex">\(v_0\)</span>, <span class="arithmatex">\(\theta\)</span>, and <span class="arithmatex">\(g\)</span>.</p>
 <h3 id="family-of-solutions">Family of Solutions</h3>
 <p>The parameters <span class="arithmatex">\(v_0\)</span>, <span class="arithmatex">\(\theta\)</span>, <span class="arithmatex">\(g\)</span>, and initial height <span class="arithmatex">\(h\)</span> (if <span class="arithmatex">\(y_0 \neq 0\)</span>) define a family of trajectories. For instance:
